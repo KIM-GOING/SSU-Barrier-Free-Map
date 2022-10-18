@@ -1,0 +1,21 @@
+ <!-- 네비게이션바 -->
+  <nav class>
+      <div>
+          <a href="{% url 'testapp:index' %}">
+              <span>to Index</span>
+          </a>
+          <div >
+              <ul class>
+                  <li class>
+                      {% if user.is_authenticated %}
+                      <p>사용자 : {{user.username}}</p>
+                      <a class href="{% url 'common:logout' %}">log-out</a>
+                      {% else %}
+                      <a class href="{% url 'common:login' %}">로그인</a>
+                      <a class href="{% url 'common:signup' %}">signup</a>
+                      {% endif %}
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
