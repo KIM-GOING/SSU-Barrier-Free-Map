@@ -1,0 +1,8 @@
+10.31
+ - campus, restaurant 앱 추가
+	ㄴ 학교 관련 기능과 식당가 관련 기능 나눠서 하는게 좋을듯
+ - 아주 아주 기본적인 db 생성
+ - django 버전 업데이트(안하면 오류날수도)
+ - admin 생성, id:admin password:1234
+	ㄴ localhost:8000/admin 도메인을 통해 db관리 가능
+ 
