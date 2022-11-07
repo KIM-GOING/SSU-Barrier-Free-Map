@@ -7,4 +7,7 @@
 	ㄴ 어케 뜯어고칠지는 모르겟습니다
  - admin 생성, id:admin password:1234
 	ㄴ localhost:8000/admin 도메인을 통해 db관리 가능
- 
+
+11.07
+ - db 모델 수정
+ - 이미지 업로드 진행중 - testapp
