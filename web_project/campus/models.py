@@ -1,4 +1,8 @@
 from django.db import models
-
+from common.models import Location
 class Campus(models.Model):
-    name = models.CharField(max_length=200)
+    building_name = models.CharField(max_length=200)
+    bottom_floor = models.IntegerField(null=True)
+    top_floor = models.IntegerField(null=True)
+    building_detail = models.TextField(null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
