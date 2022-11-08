@@ -11,3 +11,9 @@
 11.07
  - db 모델 수정
  - 이미지 업로드 진행중 - testapp
+
+11.08
+-media파일 기본 경로 설정
+	ㄴmedia/app_name/Y/m/d 에 저장
+-campus 기능 업데이트
+
