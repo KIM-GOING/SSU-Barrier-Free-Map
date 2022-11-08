@@ -1,0 +1,7 @@
+{% for campus in campus_list%} <!--campus.속성으루 접근 가능-->
+{{ campus.building_name }}
+{{ campus.location.name}}
+{{ campus.barrier_free_info.elevator_img}}
+<img src = " ../media/{{campus.barrier_free_info.elevator_img}}">
+<a href="{% url 'campus:detail' campus.id %}">detail</a>
+{%endfor%}
