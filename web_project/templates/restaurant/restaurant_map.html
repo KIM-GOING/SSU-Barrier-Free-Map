@@ -1,3 +1,22 @@
-kakao map api
+{% extends 'base.html' %}
 
-<button></button>
+{% block content %}
+<h1>kakao map api</h1><br>
+
+<div id="map">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ad35f7c10e8151f804a44d93a3b6bb69"></script>
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(37.4958, 126.9575), //지도의 중심좌표.
+            level: 3 //지도의 레벨(확대, 축소 정도)
+        };
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    </script>
+</div>
+
+<br><a href='/restaurant/1/'><button>특정 식당 클릭</button></a><br>
+<br><a href='/restaurant/2/'><button>특정 식당 클릭</button></a><br>
+<br><a href='/restaurant/3/'><button>특정 식당 클릭</button></a><br>
+<br><a href='/restaurant/4/'><button>특정 식당 클릭</button></a><br>
+{% endblock %}

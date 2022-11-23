@@ -11,6 +11,9 @@ class Restaurant(models.Model):
     restaurant_detail = models.TextField(blank=True)
     barrier_free_info = models.ForeignKey(BarrierFreeInfo, on_delete=models.CASCADE ,null=True)
 
+    def __str__(self):
+         return self.restaurant_name
+
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

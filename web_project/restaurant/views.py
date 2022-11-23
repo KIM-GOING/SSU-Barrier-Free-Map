@@ -13,3 +13,8 @@ def detail(request, restaurant_id) :
     restaurant = Restaurant.objects.get(pk=restaurant_id)
     context = {'restaurant': restaurant}
     return render(request, 'restaurant/restaurant_detail.html', context)
+
+def fix(request, restaurant_id) :
+    restaurant = Restaurant.objects.get(pk=restaurant_id)
+    context = {'restaurant': restaurant}
+    return render(request, 'restaurant/restaurant_fix.html', context)

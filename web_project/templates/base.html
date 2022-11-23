@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>base</title>
+    <style>
+        #map {
+            width: 700px;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
-{% include "nav.html" %} <!--네비게이션-->
 
-{%block content%}
-<!-- 템플릿 삽입 위치 -->
-{%endblock%}
+    {% block content %} <!-- 템플릿 삽입 위치 -->
+
+    {% include "nav.html" %} <!--네비게이션-->
+
+    <a href="/campus/">건물별 정보</a><br>
+    <a href="/restaurant/">식당가 정보</a><br>
+    {% endblock %}
 </body>
 </html>

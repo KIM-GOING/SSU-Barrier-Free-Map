@@ -16,6 +16,9 @@ class Location(models.Model):
     latitude = models.FloatField()
     address = models.CharField(max_length=200)
 
+    def __str__(self) :
+        return self.name
+
 class BarrierFreeInfo(models.Model):
     elevator_count = models.IntegerField(null=True)
     elevator_detail = models.TextField(null=True)
