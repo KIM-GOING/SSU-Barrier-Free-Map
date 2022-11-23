@@ -1,0 +1,12 @@
+{{address}}
+{{longitude}}
+{{latitude}}
+<form method="post" action="{% url 'common:location_create' %}">
+    {%csrf_token%}
+    <input type="hidden" name="address" value="{{address}}">
+    <input type="hidden" name = "longitude"value="{{longitude}}">
+    <input type="hidden" name = "latitude" value="{{latitude}}">
+    <label for="name">장소명</label><input type="text" name="name">
+    <button type="submit">submit</button>
+</form>
+
