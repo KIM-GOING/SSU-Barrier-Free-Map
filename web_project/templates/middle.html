@@ -4,8 +4,8 @@
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class="v24_766">
-  <div class="v24_767">
+<div class="v24_766" id="middle_area">
+  <div class="v24_767" id="restaurant_area">
     <span class="v24_768">식당가 보기</span>
     <span class="v24_769">Lorem Ipsum has been the
     industry's standard dummy text
@@ -13,12 +13,11 @@
     unknown printer took a galley of
     type and scrambled it to make
     a type specimen book.</span>
-    <div class="v24_770">
-      <div class="v24_771">
-        <iconify-icon icon="fluent:food-24-filled" class="restaurant" height="96"></iconify-icon>
-        <div class="v24_772"></div>
+    <div class="v24_770" id="restaurant_icon_area">
+      <div class="v24_773" id="restaurant_circle" onmouseover="this.style.background='rgba(255,114,54,1)';" onmouseout="this.style.background='none';"></div>
+      <div class="v24_771"  id="restaurant_icon_box">
+        <iconify-icon icon="fluent:food-24-filled" id="restaurant_icon" class="restaurant" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(255,114,54,1)';"></iconify-icon>
       </div>
-      <div class="v24_773"></div>
     </div>
   </div>
   <div class="v24_774">
@@ -29,21 +28,21 @@
       unknown printer took a galley of
       type and scrambled it to make
       a type specimen book.</span>
-    <div class="v24_777">
       <div class="v24_781">
+        <div class="v24_785" onmouseover="this.style.background='rgba(140,157,226,1)';" onmouseout="this.style.background='none';"></div>
         <div class="v24_782">
-          <iconify-icon icon="bx:building" class="building" height="96"></iconify-icon>
-          <div class="v24_783"></div>
+          <iconify-icon icon="bx:building" class="building" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(140,157,226,1)';"></iconify-icon>
         </div>
-        <div class="v24_785"></div>
       </div>
-    </div>
   </div>
 </div>
 </body>
 </html>
 <br/><br/>
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<stript>
+
+</stript>
 <style>
 * {
   box-sizing: border-box;
@@ -64,10 +63,10 @@ body {
 .v24_767 {
   width: 370px;
   height: 668px;
-  position: absolute;
+  position: relative;
   top: 0px;
   left: 720px;
-<!--  border: medium dashed red;-->
+  border: medium dashed red;
 }
 .v24_768 {
   width: 117px;
@@ -99,33 +98,23 @@ body {
   position: absolute;
   top: 97px;
   left: 97px;
-<!--  border:solid;-->
+  border:solid;
 }
 .v24_771 {
   width: 96px;
   height: 96px;
-<!--  background: rgba(255,255,255,1);-->
   opacity: 1;
   position: absolute;
   top: 40px;
   left: 40px;
   overflow: hidden;
-<!--  border:dotted;-->
+  border:dotted;
 }
 .restaurant{
-
   color: rgba(255,114,54,1);
+  z-index:1
 }
-.v24_772 {
-  width: 56px;
-  height: 71px;
-<!--  background: rgba(255,114,54,1);-->
-  opacity: 1;
-  position: absolute;
-  top: 12px;
-  left: 20px;
-<!--  orange regtangle -->
-}
+
 .v24_773 {
   width: 164px;
   height: 164px;
@@ -135,13 +124,14 @@ body {
   border-radius: 50%;
   border: medium solid rgba(255,114,54,1);
 }
+
 .v24_774 {
   width: 370px;
   height: 668px;
   position: absolute;
   top: 0px;
   left: 350px;
-<!--  border: medium dashed red;-->
+  border: medium dashed red;
 }
 .v24_775 {
   width: 117px;
@@ -167,22 +157,15 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v24_777 {
-  width: 198px;
-  height: 190px;
-  position: absolute;
-  top: 88px;
-  left: 86px;
-  overflow: hidden;
-}
+
 .v24_781 {
   width: 177px;
   height: 177px;
   position: absolute;
-  top: 7px;
-  left: 11px;
-  overflow: hidden;
-<!--  border: solid;-->
+  top: 97px;
+  left: 97px;
+  border: solid;
+
 }
 .v24_782 {
   width: 107px;
@@ -193,22 +176,13 @@ body {
   top: 40px;
   left: 35px;
   overflow: hidden;
-<!--  border: dotted;-->
+  border: dotted;
 <!--  building img-->
 }
 .building{
   color: rgba(140,157,226,1);
 }
-.v24_783 {
-  width: 71px;
-  height: 80px;
-<!--  background: rgba(140,157,226,1);-->
-  opacity: 1;
-  position: absolute;
-  top: 8px;
-  left: 17px;
-<!--  blue regtangle -->
-}
+
 .v24_785 {
   width: 164px;
   height: 164px;
