@@ -14,29 +14,25 @@ def get_file_path(instance, filename):
 
 
 class BarrierFreeInfo(models.Model):
-    elevator_count = models.IntegerField(null=True)
-    elevator_detail = models.TextField(null=True)
+    is_elevator = models.BooleanField(null=True)
     elevator_img = models.ImageField(null=True , upload_to=get_file_path)
 
-    entrance_form = models.CharField(max_length=200)
-    entrance_ramp = models.CharField(max_length=200)
-    entrance_braille = models.BooleanField(null=True)
-    entrance_detail = models.TextField(blank=True)
+    is_ramp = models.BooleanField(null=True)
+    is_braille = models.BooleanField(null=True)
     entrance_img = models.ImageField(null=True , upload_to=get_file_path)
 
-    restroom_floor = models.IntegerField(null=True)
-    restroom_detail = models.TextField(blank=True)
-    restroom_img = models.ImageField(null=True , upload_to=get_file_path)
+    is_accessible_toilet = models.BooleanField(null=True)
+    toilet_img = models.ImageField(null=True , upload_to=get_file_path)
 
     parking_count = models.IntegerField(null=True)
-    parking_detail = models.TextField(blank=True)
     parking_img = models.ImageField(null=True , upload_to=get_file_path)
 
+    detail = models.TextField(null=True)
     def delete(self, *args, **kwargs):
         super(BarrierFreeInfo, self).delete(*args, **kwargs)
         os.remove(os.path.join(settings.MEDIA_ROOT, self.elevator_img.path))
         os.remove(os.path.join(settings.MEDIA_ROOT, self.entrance_img.path))
-        os.remove(os.path.join(settings.MEDIA_ROOT, self.restroom_image.path))
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.toilet_img.path))
         os.remove(os.path.join(settings.MEDIA_ROOT, self.parking_img.path))
 
 class Location(models.Model):
@@ -44,4 +40,10 @@ class Location(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
     address = models.CharField(max_length=200)
-    barrier_free_info = models.ForeignKey(BarrierFreeInfo, on_delete=models.CASCADE, null=True)
+    barrier_free_info = models.ForeignKey(BarrierFreeInfo, on_delete=models.SET_NULL, null=True)
+
+class Reply(models.Model):
+    ip = models.CharField(max_length=20,null=True)
+    text = models.TextField(null=True)
+    createdate = models.DateTimeField(null=True)
+    barrier_free_info = models.ForeignKey(BarrierFreeInfo, on_delete=models.CASCADE,null=True)

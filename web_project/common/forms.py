@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from common.models import Location,BarrierFreeInfo
+from django_summernote.widgets import SummernoteWidget
+from common.models import Location,BarrierFreeInfo,Reply
 
 class UserForm(UserCreationForm):
     email = forms.EmailField(label="이메일")
@@ -11,16 +12,32 @@ class UserForm(UserCreationForm):
         fields = ("username", "password1", "password2", "email")
 
 class LocationForm(forms.ModelForm):
+
     class Meta:
         model = Location
-        fields = ("name", "longitude","latitude","address")
+        fields = ["name", "longitude","latitude","address"]
+        widgets = {'longitude':forms.HiddenInput,
+                   'latitude':forms.HiddenInput,
+                   'address':forms.HiddenInput,}
 
 class BarrierFreeInfoForm(forms.ModelForm):
+    is_elevator = forms.BooleanField()
+    elevator_img = forms.FileField(required=False)
+    entrance_img = forms.FileField(required=False)
+    parking_img = forms.FileField(required=False)
+    toilet_img = forms.FileField(required=False)
+    is_braille = forms.BooleanField()
+    is_ramp = forms.BooleanField()
+    is_accessible_toilet = forms.BooleanField()
     class Meta:
         model = BarrierFreeInfo
-        fields = ("elevator_count","elevator_detail","elevator_detail",
-                  "entrance_form","entrance_ramp","entrance_braille",
-                  "entrance_detail","entrance_img", "restroom_floor",
-                  "restroom_detail","restroom_img", "parking_count",
-                  "parking_detail","parking_img"
-                  )
+        fields = ["is_elevator","elevator_img",
+                  "is_ramp","is_braille",
+                  "entrance_img", "is_accessible_toilet",
+                  "toilet_img", "parking_count",
+                  "parking_img","detail"
+                  ]
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['text']

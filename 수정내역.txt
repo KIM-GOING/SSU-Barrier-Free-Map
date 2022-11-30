@@ -17,3 +17,6 @@
 	ㄴmedia/app_name/Y/m/d 에 저장
 -campus 기능 업데이트
 
+11.30
+testapp 제거
+게시물 등록

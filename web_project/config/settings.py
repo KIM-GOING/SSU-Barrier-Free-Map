@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_summernote',
     "common.apps.CommonConfig",
-    "testapp.apps.TestappConfig",
     "campus.apps.CampusConfig",
     "restaurant.apps.RestaurantConfig",
+
 ]
 
 MIDDLEWARE = [

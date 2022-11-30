@@ -1,3 +1,4 @@
 venv/
 web_project/db.sqlite3
+web_project/.idea/
 .idea/
