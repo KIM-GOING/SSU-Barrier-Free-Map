@@ -1,1 +1,9 @@
 {{barrier_free_info}}
+{%for reply in barrier_free_info.reply_set.all%}
+{{reply}}
+{%endfor%}
+<form method="post" action="{%url 'common:reply_create' barrier_free_info.id%}">
+{%csrf_token%}
+{{reply_form}}
+<input type="submit">
+</form>

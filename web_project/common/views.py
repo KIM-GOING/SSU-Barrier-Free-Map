@@ -3,8 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
-from common.forms import UserForm,LocationForm
-from common.models import Location,BarrierFreeInfo
+from common.forms import UserForm,LocationForm,BarrierFreeInfoForm,ReplyForm
+from common.models import Location,BarrierFreeInfo,Reply
+from django.utils import timezone
+
 from config import settings
 import datetime
 from ipware.ip import get_client_ip
@@ -29,17 +31,70 @@ def location_check(request):
     longitude = request.GET.get('longitude')
     latitude = request.GET.get('latitude')
     if(Location.objects.filter(address=address).exists()):
-        return HttpResponse("found")
+        location = Location.objects.get(address=address)
+        return redirect('common:barrier_free_info_detail',location.barrier_free_info.id)
     else:
-        context = {'address': address,'longitude':longitude,'latitude':latitude}
+        location_form = LocationForm()
+        barrier_form = BarrierFreeInfoForm()
+        context = {'address': address,'longitude':longitude,'latitude':latitude,
+                   'barrier_form':barrier_form, 'location_form':location_form}
         return render(request, 'common/location_form.html',context)
 
 
 def location_create(request):
     if request.method == 'POST':
-        form = LocationForm(request.POST)
-        if form.is_valid():
-            new_loc = form.save()
+        locform = LocationForm(request.POST)
+        barrierform = BarrierFreeInfoForm(request.POST)
+        '''if barrierform['is_elevator'] == '2':
+            setattr(barrierform,'is_elevator',True)
+        else :
+            setattr(barrierform,'is_elevator',False)
+
+        if barrierform['is_ramp'] == '2':
+            setattr(barrierform,'is_ramp',True)
+        else :
+            setattr(barrierform,'is_elevator',False)
+
+        if barrierform['is_braille'] == '2':
+            setattr(barrierform,'is_braille',True)
+        else :
+            setattr(barrierform,'is_braille',False)
+
+        if barrierform['is_accessible_toilet'] == '2':
+            setattr(barrierform,'is_accessible_toilet',True)
+        else:
+            setattr(barrierform,'is_accessible_toilet',False)'''
+
+        if locform.is_valid():
+            new_loc = locform.save(commit=False)
+
+            new_barrier = BarrierFreeInfo()
+            if request.POST['is_elevator']=='on':
+                new_barrier.is_elevator = True
+            else:
+                new_barrier.is_elevator = False
+            if request.POST['is_braille'] == 'on':
+                new_barrier.is_braille = True
+            else:
+                new_barrier.is_braille = False
+            if request.POST['is_ramp'] == 'on':
+                new_barrier.is_ramp = True
+            else:
+                new_barrier.is_ramp = False
+            if request.POST['is_accessible_toilet'] == 'on':
+                new_barrier.is_accessible_toilet = True
+            else:
+                new_barrier.is_accessible_toilet = False
+
+            new_barrier.elevator_img=request.POST['elevator_img']
+            new_barrier.toilet_img=request.POST['toilet_img']
+            new_barrier.entrance_img=request.POST['entrance_img']
+            new_barrier.parking_img = request.POST['parking_img']
+            new_barrier.parking_count=request.POST['parking_count']
+            new_barrier.detail=request.POST['detail']
+
+            new_barrier.save()
+            new_loc.barrier_free_info = new_barrier
             new_loc.save()
             return redirect('restaurant:marker')
     else :
@@ -47,8 +102,23 @@ def location_create(request):
 
 def barrier_free_info_detail(request, barrier_free_info_id):
     barrier_free_info =get_object_or_404(BarrierFreeInfo,pk=barrier_free_info_id)
-    context = {'barrier_free_info': barrier_free_info}
+    reply_form = ReplyForm()
+    context = {'barrier_free_info': barrier_free_info,'reply_form':reply_form}
     return render(request, 'common/barrier_detail.html',context)
 
 
+def reply_create(request, barrier_free_info_id):
+    barrier_free_info = get_object_or_404(BarrierFreeInfo,pk=barrier_free_info_id)
+    if request.method=='POST':
+        reply=Reply()
+        reply.text = request.POST['text']
+        reply.barrier_free_info = barrier_free_info
+        reply.createdate = timezone.now()
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
+        if x_forwarded_for:
+            reply.ip = x_forwarded_for.split(',')[0]
+        else:
+            reply.ip = request.META.get('REMOTE_ADDR')
+        reply.save()
+    return redirect('common:barrier_free_info_detail', barrier_free_info_id=barrier_free_info.id)
