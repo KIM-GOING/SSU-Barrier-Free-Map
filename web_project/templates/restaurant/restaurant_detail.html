@@ -5,10 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Detail</title>
+
+    <style>
+        #bookmark {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    
+
 </head>
 <body>
     <h1>restaurant detail window</h1><br>
     <div>content {{restaurant.restaurant_name}}</div><br>
+
+    <div class="mt-4">
+        <img id="bookmark" src="https://i.imgur.com/degccgx.png" onclick="OnclickBookMark()"></img>
+    </div><br>
+
+    <script>
+        let isBookMark = true;
+        
+        function ChangeColor() {
+            document.querySelector('#bookmark').src =
+                isBookMark
+                    ? 'https://i.imgur.com/degccgx.png'
+                    : 'https://i.imgur.com/4GXylmf.png';
+        }
+
+        function OnclickBookMark() {
+            isBookMark = !isBookMark;
+            ChangeColor()
+
+            if (!isBookMark) {
+                document.cookie = "{{restaurant.restaurant_name}}=즐겨찾기; path=/";
+            }
+            if (isBookMark) {
+                document.cookie = "{{restaurant.restaurant_name}}=; path=/";
+            }
+        }
+    </script>
+
     <a href="/restaurant/{{restaurant.id}}/fix/"><button>정보수정</button></a><br>
 </body>
 </html>

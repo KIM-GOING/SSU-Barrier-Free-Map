@@ -20,6 +20,7 @@ class Location(models.Model):
         return self.name
 
 class BarrierFreeInfo(models.Model):
+
     elevator_count = models.IntegerField(null=True)
     elevator_detail = models.TextField(null=True)
     elevator_img = models.ImageField(null=True , upload_to=get_file_path)
@@ -44,5 +45,15 @@ class BarrierFreeInfo(models.Model):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.entrance_img.path))
         os.remove(os.path.join(settings.MEDIA_ROOT, self.restroom_image.path))
         os.remove(os.path.join(settings.MEDIA_ROOT, self.parking_img.path))
+        
+class NewBarrierFreeInfo(models.Model) :
+    info_value = models.CharField(max_length=200)
+    info_img = models.ImageField(null=True, upload_to=get_file_path)
+    info_detail = models.TextField(null=True)
 
+    def delete(self, *args, **kwargs):
+        super(BarrierFreeInfo, self).delete(*args, **kwargs)
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.info_img.path))
 
+    def __str__(self) :
+        return self.info_value

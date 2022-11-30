@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('testapp.urls')),
     path('common/', include('common.urls')),
     path('campus/', include('campus.urls')),
-    path('restaurant/', include('restaurant.urls'))
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('restaurant/', include('restaurant.urls')),
+    path('bookmark/', include('common.urls')),
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

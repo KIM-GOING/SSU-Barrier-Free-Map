@@ -8,6 +8,7 @@ from testapp.models import TestImage
 
 admin.site.register(Location)
 admin.site.register(BarrierFreeInfo)
+admin.site.register(NewBarrierFreeInfo)
 admin.site.register(Restaurant)
 admin.site.register(Review)
 admin.site.register(Campus)
