@@ -22,10 +22,10 @@ class LocationForm(forms.ModelForm):
 
 class BarrierFreeInfoForm(forms.ModelForm):
     is_elevator = forms.BooleanField()
-    elevator_img = forms.FileField(required=False)
-    entrance_img = forms.FileField(required=False)
-    parking_img = forms.FileField(required=False)
-    toilet_img = forms.FileField(required=False)
+    elevator_img = forms.ImageField(required=False)
+    entrance_img = forms.ImageField(required=False)
+    parking_img = forms.ImageField(required=False)
+    toilet_img = forms.ImageField(required=False)
     is_braille = forms.BooleanField()
     is_ramp = forms.BooleanField()
     is_accessible_toilet = forms.BooleanField()

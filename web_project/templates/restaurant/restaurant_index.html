@@ -1,16 +1,35 @@
 <!DOCTYPE html>
+{%load static%}
 <html>
 <head>
     <meta charset="utf-8">
-    <title>키워드로 장소검색하기</title>
-
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+    <style>
+    img {
+      font-size:20px;
+    }
+  </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
+        <a class="nav-link" href="{%url 'campus:index' %}">캠퍼스 보기</a>
+        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <div id="map" style="width:100%;height:350px;"></div>
-{%for marker in marker_list %}
-<{{marker.longitude}}||
-{{marker.latitude}}>
-{%endfor%}
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=744d12fd7336e18074d2732726e644af&libraries=services"></script>
 <script>
@@ -32,7 +51,7 @@ var geocoder = new kakao.maps.services.Geocoder();
  var positions = [
     {%for marker in marker_list%}
     {
-        content: '<div>'+'{{marker.name}}'+'id : {{marker.barrier_free_info.id}}'+'<a href = {%url 'common:barrier_free_info_detail' marker.barrier_free_info.id %}>dd</a></div>',
+        content: '<a href = {%url 'common:barrier_free_info_detail' marker.barrier_free_info.id %}>{{marker.name}}</a>',
         latlng: new kakao.maps.LatLng({{marker.latitude}}, {{marker.longitude}})
     },
     {%endfor%}
@@ -85,13 +104,12 @@ function makeOverListener(map, marker, infowindow) {
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
         if (status === kakao.maps.services.Status.OK) {
-            var detailAddr = '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+            var detailAddr = '<div>' + result[0].address.address_name + '</div>';
             var content = '<form action={%url 'common:location_check'%}><div class="bAddr">' + detailAddr +'</div>';
-            content += '<input type=text name = "address" value= "' + String(result[0].address.address_name) + '"></input>'
-            content += '<input type=text name = longitude value=' +mouseEvent.latLng.getLng()+  '></input>'
-            content += '<input type=text name = latitude value =' +mouseEvent.latLng.getLat()+  '></input>'
-            content += '<input type=submit></form>'
-            content += '<p>'+result[0].address.address_name+'<p>'
+            content += '<input type=hidden name = "address" value= "' + String(result[0].address.address_name) + '"></input>'
+            content += '<input type=hidden name = longitude value=' +mouseEvent.latLng.getLng()+  '></input>'
+            content += '<input type=hidden name = latitude value =' +mouseEvent.latLng.getLat()+  '></input>'
+            content += '<input type=submit value="장소 등록하기"></form>'
 
             // 마커를 클릭한 위치에 표시합니다
             marker.setPosition(mouseEvent.latLng);

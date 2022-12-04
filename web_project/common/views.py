@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.core.paginator import  Paginator
 from common.forms import UserForm,LocationForm,BarrierFreeInfoForm,ReplyForm
 from common.models import Location,BarrierFreeInfo,Reply
 from django.utils import timezone
@@ -30,6 +31,9 @@ def location_check(request):
     address = request.GET.get('address')
     longitude = request.GET.get('longitude')
     latitude = request.GET.get('latitude')
+    if (address == '서울 동작구 상도동 511'):
+        return redirect('campus:index')
+
     if(Location.objects.filter(address=address).exists()):
         location = Location.objects.get(address=address)
         return redirect('common:barrier_free_info_detail',location.barrier_free_info.id)
@@ -45,26 +49,6 @@ def location_create(request):
     if request.method == 'POST':
         locform = LocationForm(request.POST)
         barrierform = BarrierFreeInfoForm(request.POST)
-        '''if barrierform['is_elevator'] == '2':
-            setattr(barrierform,'is_elevator',True)
-        else :
-            setattr(barrierform,'is_elevator',False)
-
-        if barrierform['is_ramp'] == '2':
-            setattr(barrierform,'is_ramp',True)
-        else :
-            setattr(barrierform,'is_elevator',False)
-
-        if barrierform['is_braille'] == '2':
-            setattr(barrierform,'is_braille',True)
-        else :
-            setattr(barrierform,'is_braille',False)
-
-        if barrierform['is_accessible_toilet'] == '2':
-            setattr(barrierform,'is_accessible_toilet',True)
-        else:
-            setattr(barrierform,'is_accessible_toilet',False)'''
-
         if locform.is_valid():
             new_loc = locform.save(commit=False)
 
@@ -86,10 +70,10 @@ def location_create(request):
             else:
                 new_barrier.is_accessible_toilet = False
 
-            new_barrier.elevator_img=request.POST['elevator_img']
-            new_barrier.toilet_img=request.POST['toilet_img']
-            new_barrier.entrance_img=request.POST['entrance_img']
-            new_barrier.parking_img = request.POST['parking_img']
+            new_barrier.elevator_img=request.FILES.get('elevator_img')
+            new_barrier.toilet_img=request.FILES.get('toilet_img')
+            new_barrier.entrance_img=request.FILES.get('entrance_img')
+            new_barrier.parking_img = request.FILES.get('parking_img')
             new_barrier.parking_count=request.POST['parking_count']
             new_barrier.detail=request.POST['detail']
 
@@ -103,6 +87,7 @@ def location_create(request):
 def barrier_free_info_detail(request, barrier_free_info_id):
     barrier_free_info =get_object_or_404(BarrierFreeInfo,pk=barrier_free_info_id)
     reply_form = ReplyForm()
+
     context = {'barrier_free_info': barrier_free_info,'reply_form':reply_form}
     return render(request, 'common/barrier_detail.html',context)
 
@@ -122,3 +107,6 @@ def reply_create(request, barrier_free_info_id):
             reply.ip = request.META.get('REMOTE_ADDR')
         reply.save()
     return redirect('common:barrier_free_info_detail', barrier_free_info_id=barrier_free_info.id)
+
+def index(request):
+    return render(request,'common/middle.html')
