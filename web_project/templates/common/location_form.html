@@ -1,51 +1,127 @@
-{{address}}
-{{longitude}}
-{{latitude}}
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SSU-Barrier-Free-Map</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+    <style>
+    img {
+      font-size:20px;
+    }
+  </style>
+    <link rel="stylesheet" href="{% static '/css/building_details.css' %}?after" type="text/css">
 
-<form method="post" action="{% url 'common:location_create' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
+        <a class="nav-link" href="{% url 'campus:index'%}">캠퍼스 보기</a>
+        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+       <div class="card">
+       <div class="card-body " style="width: 60rem; float:none; margin:0 auto;">
+                  <h2> 배리어프리 정보 등록하기</h2>
+       <form enctype="multipart/form-data" method="post" action="{% url 'common:location_create' %}">
 {%csrf_token%}
-<div>
-    <input type="radio" name = {{barrier_form.is_elevator.name}} value="on">
-    <input type="radio" name = {{barrier_form.is_elevator.name}} value="off" checked>
-    <input type="file" name= {{barrier_form.elevator_img.name}}>
-    {{barrier_form.elevator_img}}
+<div class="card">
+    <div class="card-body">
+    <h5>엘레베이터 정보</h5>
+    </div>
+    <div class="card-body">
+    <label for="is_el_true">엘레베이터 있음</label>
+    <input id="is_el_true" type="radio" name = {{barrier_form.is_elevator.name}} value="on">
+    <label for="is_el_false">엘레베이터 없음</label>
+    <input id="is_el_false"type="radio" name = {{barrier_form.is_elevator.name}} value="off" checked>
+    </div>
+    <div class="card-body">
+    <label for="el_img">엘레베이터 이미지를 선택해주세요(선택)</label>
+    <input id="el_img" type="file" name= {{barrier_form.elevator_img.name}}>
+    </div>
 </div>
-<div>
-    <input type="radio" name = {{barrier_form.is_ramp.name}} value="on">
-    <input type="radio" name = {{barrier_form.is_ramp.name}} value="off" checked>
-    <input type="radio" name = {{barrier_form.is_braille.name}} value="on">
-    <input type="radio" name = {{barrier_form.is_braille.name}} value="off" checked>
-    {{barrier_form.entrance_img}}
+<div class="card">
+    <div class="card-body">
+        <h5>출입구 정보</h5>
+    </div>
+    <div class="card-body">
+        <label for="is_ramp_true">경사로 있음</label>
+        <input id="is_ramp_true" type="radio" name = {{barrier_form.is_ramp.name}} value="on">
+        <label for="is_ramp_false">경사로 없음</label>
+        <input id="is_ramp_false" type="radio" name = {{barrier_form.is_ramp.name}} value="off" checked>
+        <label for="is_braille_true">점자블록 있음</label>
+        <input id="is_braille_true" type="radio" name = {{barrier_form.is_braille.name}} value="on">
+        <label for="is_braille_false">점자블록 없음</label>
+        <input id="is_braille_false" type="radio" name = {{barrier_form.is_braille.name}} value="off" checked>
+    </div>
+    <div class="card-body">
+        <label for="en_img">출입구 이미지를 선택해주세요(선택)</label>
+        <input id="en_img" type="file" name= {{barrier_form.entrance_img.name}}>
+    </div>
+
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5>화장실 정보</h5>
+    </div>
+    <div class="card-body">
+        <label for="is_acc_true">장애인 화장실 있음</label>
+        <input id = "is_acc_true"type="radio" name = {{barrier_form.is_accessible_toilet.name}} value="on">
+        <label for="is_acc_false">장애인 화장실 없음</label>
+        <input id="is_acc_false"type="radio" name = {{barrier_form.is_accessible_toilet.name}} value="off" checked>
+    </div>
+    <div class="card-body">
+        <label for="toilet_img">화장실 이미지를 선택해주세요(선택)</label>
+        <input id="toilet_img" type="file" name= {{barrier_form.toilet_img.name}}>
+    </div>
+
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5>주차장 정보</h5>
+    </div>
+    <div class="card-body">
+        <p>장애인 주차구역 수</p>{{barrier_form.parking_count}}
+    </div>
+
+    <div class="card-body">
+        <p>주차장 이미지를 선택해주세요(선택)</p>
+        {{barrier_form.parking_img}}
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5>장소 정보</h5>
+    </div>
+    <div class="card-body">
+        <p>장소 이름 입력</p>{{location_form.name}}
+    </div>
+        <div class="card-body">
+        <p>장소 설명</p>
+        {{barrier_form.detail}}
+    </div>
 </div>
 
-
-
-<input type="radio" name = {{barrier_form.is_accessible_toilet.name}} value="on">
-<input type="radio" name = {{barrier_form.is_accessible_toilet.name}} value="off" checked>
-{{barrier_form.toilet_img}}
-{{barrier_form.parking_count}}
-{{barrier_form.parking_img}}
-{{barrier_form.detail}}
-{{location_form.name}}
 <input type="hidden" name="{{location_form.longitude.name}}" value="{{longitude}}">
 <input type="hidden" name="{{location_form.latitude.name}}" value="{{latitude}}">
 <input type="hidden" name="{{location_form.address.name}}" value="{{address}}">
-
- <!--
-    <input type="hidden" name="address" value="{{address}}">
-    <input type="hidden" name = "longitude"value="{{longitude}}">
-    <input type="hidden" name = "latitude" value="{{latitude}}">
-    <label for="name">장소명</label><input type="text" name="name">
-    <input type="checkbox" name ="is_elevator">
-    <input type="checkbox" name ="is_ramp">
-    <input type="checkbox" name ="is_braille">
-    <input type="checkbox" name ="is_accessible_toilet">
-    <input type="number" name ="parking_count">
-    <input type="textarea" name ="detail">
-    <input type="file" name="elevator_img">
-    <input type="file"  name="entrance_img">
-    <input type="file" name="parking_img">
-    <button type="submit">submit</button> -->
-    <input type="submit">
+<input type="submit">
 </form>
+    </div>
+   </div>
 
+</body>

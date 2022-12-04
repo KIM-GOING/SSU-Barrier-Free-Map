@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from common import views
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('common/', include('common.urls')),
     path('campus/', include('campus.urls')),
-    path('restaurant/',include('restaurant.urls'))
+    path('restaurant/',include('restaurant.urls')),
+    path('',views.index, name='index')
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
