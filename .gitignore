@@ -1,4 +1,4 @@
 venv/
-web_project/db.sqlite3
+*.sqlite3
 web_project/.idea/
 .idea/
