@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="v62_325" id="building_list">
+    <div class="v62_327"><span class="v62_328" id="building_list_item_building">건물별 보기</span></div>
+    <div class="v62_329"><a href="/" class="v62_330" id="building_list_item_education">교육관</a></div>
+    <div class="v62_331"><a href="/" class="v62_332" id="building_list_item_globalbrainhall">글로벌브레인홀</a></div>
+    <div class="v62_333"><a href="/" class="v62_334" id="building_list_item_ground">대운동장</a></div>
+    <div class="v62_335"><a href="/" class="v62_336" id="building_list_item_residencehall">레지던스홀</a></div>
+    <div class="v62_337"><a href="/" class="v62_338" id="building_list_item_culture">문화관</a></div>
+    <div class="v62_339"><a href="/" class="v62_340" id="building_list_item_future">미래관</a></div>
+    <div class="v62_341"><a href="/" class="v62_342" id="building_list_item_whitehorse">백마관</a></div>
+    <div class="v62_343"><a href="/" class="v62_344" id="building_list_item_bairdhall">베어드홀</a></div>
+    <div class="v62_345"><a href="/" class="v62_346" id="building_list_item_venture">벤처기업중소센터</a></div>
+    <div class="v62_347"><a href="/" class="v62_348" id="building_list_item_waterfall">분수대</a></div>
+    <div class="v62_349"><a href="/" class="v62_350" id="building_list_item_gyeongsang">숭덕경상관</a></div>
+    <div class="v62_351"><a href="/" class="v62_352" id="building_list_item_shinyang">신양관</a></div>
+    <div class="v62_353"><a href="/" class="v62_354" id="building_list_item_ahneaktai">안익태기념관</a></div>
+    <div class="v62_355"><a href="/" class="v62_356" id="building_list_item_research">연구관</a></div>
+    <div class="v62_357"><a href="/" class="v62_358" id="building_list_item_westminsterhall">웨스트민스터홀</a></div>
+    <div class="v62_359"><a href="/" class="v62_360" id="building_list_item_computersystem">전산관</a></div>
+    <div class="v62_361"><a href="/" class="v62_362" id="building_list_item_it">정보과학관</a></div>
+    <div class="v62_363"><a href="/" class="v62_364" id="building_list_item_chomansik">조만식기념관</a></div>
+    <div class="v62_365"><a href="/" class="v62_366" id="building_list_item_library">중앙도서관</a></div>
+    <div class="v62_367"><a href="/" class="v62_368" id="building_list_item_jinri">진리관</a></div>
+    <div class="v62_369"><a href="/" class="v62_370" id="building_list_item_changshin">창신관</a></div>
+    <div class="v62_379"><a href="/" class="v62_380" id="building_list_item_changui">창의관</a></div>
+    <div class="v62_371"><a href="/" class="v62_372" id="building_list_item_student">학생회관</a></div>
+    <div class="v62_373"><a href="/" class="v62_374" id="building_list_item_museum">한국기독교박물관</a></div>
+    <div class="v62_375"><a href="/" class="v62_376" id="building_list_item_hankyungchik">한경직기념관</a></div>
+    <div class="v62_377"><a href="/" class="v62_378" id="building_list_item_hyeongnam">형남공학관</a></div>
+</div>
+
+<div class="v62_667">
+    <div class="v62_669">
+        <div class="v62_670"></div>
+        <iconify-icon icon="bx:building" class="building" height="20"></iconify-icon>
+    </div>
+    <span class="v73_998">커뮤니티</span>
+<!--    <div class="v73_1002">-->
+<!--        <div class="v73_1003"></div>-->
+<!--    </div>-->
+</div>
+
+<div class="v24_192" id="board_background">
+    <div class="v24_193" id="board_content_area">
+      <!--https://blog.naver.com/code-ing/222272856716-->
+        <div class="board_view_wrap">
+            <div class="board_view">
+                <div class="title">
+                    글 제목이 들어갑니다.
+                    <div class="delete_btn_div">
+                      <button class="delete_btn" type="button" onclick="promptBox()">삭제</button>
+                    </div>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>번호</dt>
+                        <dd>1</dd>
+                    </dl>
+                    <dl>
+                        <dt>글쓴이</dt>
+                        <dd>김이름</dd>
+                    </dl>
+                    <dl>
+                        <dt>작성일</dt>
+                        <dd>2021.1.16</dd>
+                    </dl>
+                    <dl>
+                        <dt>조회</dt>
+                        <dd>33</dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    글 내용이 들어갑니다<br>
+                </div>
+            </div>
+          <!--https://m.blog.naver.com/2ejhi/222018209920-->
+            <div class="comment_area">
+               <div class="comments_view">
+                  <div class="comment">댓글이 들어갑니다.</div>
+                  <div class="comment">댓글이 들어갑니다.</div>
+               </div>
+              <form method="post" encType = "multipart/form-data" action="/" class="write_comment_form">
+                <table class="write_comment_table" style="text-align: center;">
+                    <tr>
+                        <td style="border-bottom:none;" valign="middle"><%= userID %></td>
+                      <td><textarea cols="100" rows="6" class="form-control" placeholder="상대방을 존중하는 댓글을 남깁시다." name = "commentText" required></textarea></td>
+                        <td><input type="submit" style="background: rgba(140,157,226,1); border:0px; color: #fff; padding:8px; font-size: 1.4rem;" class="btn-primary pull" value="댓글 작성"></td>
+                    </tr>
+                </table>
+              </form>
+            </div>
+            <div class="bt_wrap">
+                <a href="building_details.html" class="on">목록</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<br/><br/>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<script type="text/javascript" src="../static/admin/js/building_main.js"></script>
+<script>
+        function alertBox(){
+            alert("GeeksforGeeks: This" +
+                    " is an Alert Box.");
+        }
+
+        function promptBox(){
+            var getPassword=prompt("비밀번호를 입력하세요.");
+            if(1111 == getPassword) {
+                alert("게시글이 삭제되었습니다.");
+
+            } else {
+                alert("비밀번호가 틀렸습니다.");
+            }
+        }
+    </script>
+<style>
+ @import url("../static/admin/css/board.css");
+</style>
