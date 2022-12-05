@@ -27,7 +27,8 @@ SECRET_KEY = "django-insecure-0hb^qw+d^^1iv^)kc&yquy_pthmcv%=v)65xn(sjx#g3w5(0-=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['3.36.19.163','localhost']
 
 
 # Application definition
@@ -39,8 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_summernote',
     "common.apps.CommonConfig",
-    "testapp.apps.TestappConfig"
+    "campus.apps.CampusConfig",
+    "restaurant.apps.RestaurantConfig",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -113,10 +117,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = ''
-STATIC_URL = "/static/"
-STATICFILES_DIRS = (os.path.join('static'), )
 
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+STATICFILES_DIRS=[
+    BASE_DIR/'static/',
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -124,3 +133,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = '/' #로그인 성공 후 리다이렉트 경로
 LOGOUT_REDIRECT_URL = '/' #로그아웃 후 리다이렉트 경로
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_SECURE_URLS = True       # use http instead of https
+AWS_QUERYSTRING_AUTH = False     # don't add complex authentication-related query parameters for requests
+
+AWS_S3_ACCESS_KEY_ID = 'ACCESS_KEY_ID'
+AWS_S3_SECRET_ACCESS_KEY = 'SECRET_ACCESS_KEY'
+AWS_STORAGE_BUCKET_NAME = 'barrierfreebucket'

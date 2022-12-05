@@ -1,0 +1,22 @@
+10.31
+ - campus, restaurant 앱 추가
+	ㄴ 학교 관련 기능과 식당가 관련 기능 나눠서 하는게 좋을듯
+ - 아주 아주 기본적인 db 생성
+ - django 버전 업데이트(안하면 오류날수도)
+	ㄴ 현재 장고 프로젝트는 2.1.5버전으로 생성됫는데 3.xx 이상으로 하는게 좋을듯
+	ㄴ 어케 뜯어고칠지는 모르겟습니다
+ - admin 생성, id:admin password:1234
+	ㄴ localhost:8000/admin 도메인을 통해 db관리 가능
+
+11.07
+ - db 모델 수정
+ - 이미지 업로드 진행중 - testapp
+
+11.08
+-media파일 기본 경로 설정
+	ㄴmedia/app_name/Y/m/d 에 저장
+-campus 기능 업데이트
+
+11.30
+testapp 제거
+게시물 등록

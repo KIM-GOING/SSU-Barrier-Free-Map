@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+        <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+    <style>
+    img {
+      font-size:20px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
+        <a class="nav-link" href="{%url 'campus:index'%}">캠퍼스 보기</a>
+        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="v62_325" id="building_list">
+    <div class="v62_327"><span class="v62_328" id="building_list_item_building">건물별 보기</span></div>
+    <div class="v62_329"><a href="/" class="v62_330" id="building_list_item_education">교육관</a></div>
+    <div class="v62_331"><a href="/" class="v62_332" id="building_list_item_globalbrainhall">글로벌브레인홀</a></div>
+    <div class="v62_333"><a href="/" class="v62_334" id="building_list_item_ground">대운동장</a></div>
+    <div class="v62_335"><a href="/" class="v62_336" id="building_list_item_residencehall">레지던스홀</a></div>
+    <div class="v62_337"><a href="/" class="v62_338" id="building_list_item_culture">문화관</a></div>
+    <div class="v62_339"><a href="/" class="v62_340" id="building_list_item_future">미래관</a></div>
+    <div class="v62_341"><a href="/" class="v62_342" id="building_list_item_whitehorse">백마관</a></div>
+    <div class="v62_343"><a href="/" class="v62_344" id="building_list_item_bairdhall">베어드홀</a></div>
+    <div class="v62_345"><a href="/" class="v62_346" id="building_list_item_venture">벤처기업중소센터</a></div>
+    <div class="v62_347"><a href="/" class="v62_348" id="building_list_item_waterfall">분수대</a></div>
+    <div class="v62_349"><a href="/" class="v62_350" id="building_list_item_gyeongsang">숭덕경상관</a></div>
+    <div class="v62_351"><a href="/" class="v62_352" id="building_list_item_shinyang">신양관</a></div>
+    <div class="v62_353"><a href="/" class="v62_354" id="building_list_item_ahneaktai">안익태기념관</a></div>
+    <div class="v62_355"><a href="/" class="v62_356" id="building_list_item_research">연구관</a></div>
+    <div class="v62_357"><a href="/" class="v62_358" id="building_list_item_westminsterhall">웨스트민스터홀</a></div>
+    <div class="v62_359"><a href="/" class="v62_360" id="building_list_item_computersystem">전산관</a></div>
+    <div class="v62_361"><a href="/" class="v62_362" id="building_list_item_it">정보과학관</a></div>
+    <div class="v62_363"><a href="/" class="v62_364" id="building_list_item_chomansik">조만식기념관</a></div>
+    <div class="v62_365"><a href="/" class="v62_366" id="building_list_item_library">중앙도서관</a></div>
+    <div class="v62_367"><a href="/" class="v62_368" id="building_list_item_jinri">진리관</a></div>
+    <div class="v62_369"><a href="/" class="v62_370" id="building_list_item_changshin">창신관</a></div>
+    <div class="v62_379"><a href="/" class="v62_380" id="building_list_item_changui">창의관</a></div>
+    <div class="v62_371"><a href="/" class="v62_372" id="building_list_item_student">학생회관</a></div>
+    <div class="v62_373"><a href="/" class="v62_374" id="building_list_item_museum">한국기독교박물관</a></div>
+    <div class="v62_375"><a href="/" class="v62_376" id="building_list_item_hankyungchik">한경직기념관</a></div>
+    <div class="v62_377"><a href="/" class="v62_378" id="building_list_item_hyeongnam">형남공학관</a></div>
+</div>
+
+<div class="v62_667">
+    <div class="v62_669">
+        <div class="v62_670"></div>
+        <iconify-icon icon="bx:building" class="building" height="20"></iconify-icon>
+    </div>
+    <span class="v73_998">건물별 보기</span>
+<!--    <div class="v73_1002">-->
+<!--        <div class="v73_1003"></div>-->
+<!--    </div>-->
+</div>
+
+<div class="v24_192" id="building_map_background">
+    <div class="v24_193" id="building_map_area">
+        <div class="v24_194" id="building_map_item_bigstreet"></div>
+        <div class="v24_225"></div><div class="v24_227"></div><div class="v24_228"></div>
+        <div class="v24_229"></div><div class="v24_230"></div>
+        <a href="/" class="v24_463" id="building_map_item_whitehorse">백마관</a>
+        <a href="/" class="v24_476" id="building_map_item_shinyang">신양관</a>
+        <a href="/" class="v24_478" id="building_map_item_research">연구관</a>
+        <a href="/" class="v24_479" id="building_map_item_changshin">창신관</a>
+        <a href="/" class="v24_481" id="building_map_item_computersystem">전산관</a>
+        <a href="/" class="v24_485" id="building_map_item_future">미래관</a>
+        <a href="/" class="v24_486" id="building_map_item_gyeongsang">숭덕경상관</a>
+        <a href="/" class="v24_487" id="building_map_item_culture">문화관</a>
+        <a href="/" class="v24_488" id="building_map_item_ahneaktai">안익태기념관</a>
+        <a href="/" class="v24_482" id="building_map_item_residencehall">레지던스홀</a>
+        <a href="/" class="v24_483" id="building_map_item_it">정보과학관</a>
+        <a href="/" class="v24_484" id="building_map_item_changui">창의관</a>
+        <a href="/" class="v24_480" id="building_map_item_globalbrainhall">글로벌브레인홀</a>
+        <a href="/" class="v24_477" id="building_map_item_library">중앙도서관</a>
+        <a href="/" class="v24_464" id="building_map_item_education">교육관</a>
+        <a href="/" class="v24_465" id="building_map_item_venture">벤처기업중소센터</a>
+        <a href="common/building_details.html" class="v24_473" id="building_map_item_hyeongnam">형남공학관</a>
+        <a href="/" class="v24_474" id="building_map_item_museum">한국기독교박물관</a>
+        <a href="/" class="v24_475" id="building_map_item_hankyungchik">한경직기념관</a>
+        <a href="/" class="v24_466" id="building_map_item_ground">대운동장</a>
+        <a href="/" class="v24_471" id="building_map_item_bairdhall">베어드홀</a>
+        <a href="/" class="v24_472" id="building_map_item_waterfall">분수대</a>
+        <a href="/" class="v24_467" id="building_map_item_student">학생회관</a>
+        <a href="/" class="v24_468" id="building_map_item_jinri">진리관</a>
+        <a href="/" class="v24_470" id="building_map_item_westminsterhall">웨스트민스터홀</a>
+        <a href="/" class="v24_469" id="building_map_item_chomansik">조만식기념관</a>
+    </div>
+</div>
+</body>
+</html>
+<br/><br/>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<script type="text/javascript" src="../static/admin/js/building_main.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+
+.v24_192 {
+  width: 100%;
+  height: 625px;
+  background: rgba(231,237,251,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 344px;
+  left: 280px;
+  overflow: hidden;
+}
+.v24_193 {
+  width: 905px;
+  height: 519px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 49px;
+  left: 129px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+<!----------------------------block------------------!>
+.v24_225 {
+  width: 8px;
+  height: 34px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 745px;
+  overflow: hidden;
+}
+.v24_227 {
+  width: 8px;
+  height: 34px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 669px;
+  overflow: hidden;
+}
+.v24_228 {
+  width: 8px;
+  height: 34px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 447px;
+  overflow: hidden;
+}
+.v24_229 {
+  width: 8px;
+  height: 34px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 385px;
+  overflow: hidden;
+}
+.v24_230 {
+  width: 8px;
+  height: 34px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 153px;
+  overflow: hidden;
+}
+.v24_194 {
+  width: 905px;
+  height: 34px;
+  background: rgba(231,237,251,1);
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 0px;
+  overflow: hidden;
+<!--  big street-->
+}
+.v24_463 {
+  width: 111px;
+  height: 27px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 20px;
+  left: 220px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 27px;
+}
+.v24_476 {
+  width: 39px;
+  height: 104px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 174px;
+  left: 562px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 114px;
+}
+.v24_478 {
+  width: 42px;
+  height: 99px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 155px;
+  left: 680px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 99px;
+}
+.v24_479 {
+  width: 71px;
+  height: 46px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 221px;
+  left: 770px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 46px;
+}
+.v24_481 {
+  width: 120px;
+  height: 49px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 309px;
+  left: 708px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 49px;
+}
+.v24_485 {
+  width: 67px;
+  height: 42px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 309px;
+  left: 604px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 42px;
+}
+.v24_486 {
+  width: 76px;
+  height: 52px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 186px;
+  left: 119px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 52px;
+}
+.v24_487 {
+  width: 53px;
+  height: 80px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 245px;
+  left: 66px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 80px;
+}
+.v24_488 {
+  width: 84px;
+  height: 39px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 351px;
+  left: 167px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 39px;
+}
+.v24_482 {
+    width: 64px;
+  height: 80px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 304px;
+  left: 841px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 80px;
+}
+.v24_483 {
+  width: 84px;
+  height: 68px;
+  background:rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 434px;
+  left: 795px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 68px;
+}
+.v24_484 {
+  width: 54px;
+  height: 44px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 434px;
+  left: 734px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 44px;
+}
+.v24_480 {
+  width: 61px;
+  height: 37px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 248px;
+  left: 844px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  padding: 8px 0px;
+}
+.v24_477 {
+  width: 46px;
+  height: 68px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 186px;
+  left: 609px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  padding:15px 0px;
+}
+.v24_464 {
+  width: 59px;
+  height: 27px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 11px;
+  left: 337px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height:27px;
+}
+.v24_465 {
+  width: 101px;
+  height: 52px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 21px;
+  left: 402px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 52px;
+}
+.v24_473 {
+  width: 144px;
+  height: 70px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 316px;
+  left: 263px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 70px;
+}
+.v24_474 {
+  width: 54px;
+  height: 70px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 316px;
+  left: 435px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  padding:20px 0px;
+}
+.v24_475 {
+  width: 74px;
+  height: 70px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 316px;
+  left: 491px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 70px;
+}
+.v24_466 {
+  width: 157px;
+  height: 98px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 68px;
+  left: 205px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 98px;
+  border: medium solid white;
+  z-index:1;
+}
+.v24_471 {
+  width: 132px;
+  height: 66px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 221px;
+  left: 275px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 66px;
+}
+.v24_472 {
+  width: 122px;
+  height: 53px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 211px;
+  left: 423px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 53px;
+}
+.v24_467 {
+  width: 188px;
+  height: 115px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 79px;
+  left: 237px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: right;
+  line-height: 100px;
+  padding:0px 10px 0px 0px;
+}
+.v24_468 {
+  width: 59px;
+  height: 87px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 79px;
+  left: 441px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  line-height: 87px;
+}
+.v24_470 {
+  width: 74px;
+  height: 52px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 115px;
+  left: 562px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  padding:6px 0px;
+  z-index:1;
+  border: thick solid white;
+}
+.v24_469 {
+  width: 115px;
+  height: 87px;
+  background: rgba(235,235,235,1);
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 79px;
+  left: 503px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 10px;
+  opacity: 1;
+  text-align: center;
+  padding:10px 0px;
+}
+
+.v62_667 {
+  width: 100%;
+  height: 245px;
+  background: url("../static/admin/img/building_background_img.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 99px;
+  left: 280px;
+  overflow: hidden;
+}
+.v62_669 {
+  width: 56px;
+  height: 56px;
+  opacity: 1;
+  position: absolute;
+  top: 189px;
+  left: 78px;
+  overflow: hidden;
+<!--  building area-->
+}
+.v62_670 {
+  width: 30px;
+  height: 30px;
+  background: rgba(140,157,226,1);
+  opacity: 1;
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  border-radius: 50%;
+<!--  building circle -->
+}
+.building {
+    color: rgba(255,255,255,1);
+    z-index:1;
+    position: absolute;
+      top: 18px;
+      left: 18px;
+      overflow: hidden;
+      <!--  building icon-->
+}
+.v73_998 {
+  width: 207px;
+  color: rgba(140,157,226,1);
+  position: absolute;
+  top: 198px;
+  left: 134px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 32px;
+  opacity: 1;
+  text-align: left;
+}
+.v73_1002 {
+  width: 22px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 206px;
+  left: 349px;
+  overflow: hidden;
+  border:medium dotted black;
+<!--  star area-->
+}
+.v73_1003 {
+  width: 20px;
+  height: 19px;
+  background: rgba(255,114,54,1);
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  border:medium dotted black;
+<!--  star icon-->
+}
+
+.v62_325 {
+  width: 277px;
+  height: 870px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: scroll;
+<!--building  list area-->
+}
+.v62_325{
+   -ms-overflow-style: none;
+}
+.v62_325::-webkit-scrollbar{
+  display:none;
+}
+.v62_327 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+<!--건물별보기 tag-->
+}
+.v62_328 {
+  width: 277px;
+  color: rgba(231,237,251,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_329 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 49px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_330 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_331 {
+  width: 277px;
+  height: 49px;
+<!--  background: rgba(231,237,251,1);-->
+  opacity: 1;
+  position: absolute;
+  top: 98px;
+  left: 0px;
+  overflow: hidden;
+<!--  mouse hover-->
+}
+.v62_332 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_333 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 147px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_334 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_335 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 196px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_336 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_337 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 245px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_338 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_339 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 294px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_340 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_341 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 343px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_342 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_343 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 392px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_344 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_345 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 441px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_346 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_347 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 490px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_348 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_349 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 539px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_350 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_351 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 588px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_352 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_353 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 637px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_354 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_355 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 686px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_356 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_357 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 735px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_358 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_359 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 784px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_360 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_361 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 833px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_362 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_363 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 882px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_364 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_365 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 931px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_366 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_367 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 980px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_368 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_369 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1029px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_370 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_371 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1078px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_372 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_373 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1127px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_374 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_375 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1176px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_376 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_377 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1225px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_378 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v62_379 {
+  width: 277px;
+  height: 49px;
+  opacity: 1;
+  position: absolute;
+  top: 1274px;
+  left: 0px;
+  overflow: hidden;
+}
+.v62_380 {
+  width: 277px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 12px;
+  left: 42px;
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+</style>

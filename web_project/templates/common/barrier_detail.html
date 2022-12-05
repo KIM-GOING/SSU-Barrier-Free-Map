@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+    <style>
+    img {
+      font-size:20px;
+    }
+  </style>
+    <link rel="stylesheet" href="{% static '/css/building_details.css' %}?after" type="text/css">
+     <script>
+     function setCookie(cookie_name, value, days) {
+      var exdate = new Date();
+      exdate.setDate(exdate.getDate() + days);
+      // 설정 일수만큼 현재시간에 만료값으로 지정
+
+      var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+      document.cookie = cookie_name + '=' + cookie_value;
+    }
+    function getCookie(cookie_name) {
+      var x, y;
+      var val = document.cookie.split(';');
+
+      for (var i = 0; i < val.length; i++) {
+        x = val[i].substr(0, val[i].indexOf('='));
+        y = val[i].substr(val[i].indexOf('=') + 1);
+        x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+        if (x == cookie_name) {
+          return unescape(y); // unescape로 디코딩 후 값 리턴
+        }
+      }
+    }
+    function addCookie(id) {
+          var items = getCookie('barrier_id'); // 이미 저장된 값을 쿠키에서 가져오기
+      var maxItemNum = 5; // 최대 저장 가능한 아이템개수
+      var expire = 7; // 쿠키값을 저장할 기간
+      if (items) {
+        var itemArray = items.split(",");
+        if (items.indexOf(id) != -1) {
+          // 이미 존재하는 경우 종료
+          console.log('Already exists.');
+        }
+        else {
+          // 새로운 값 저장 및 최대 개수 유지하기
+          itemArray.unshift(id);
+          if (itemArray.length > maxItemNum ) itemArray.length = 5;
+          items = itemArray.join(',');
+          setCookie('barrier_id', items, expire);
+        }
+      }
+      else {
+        // 신규 id값 저장하기
+        setCookie('barrier_id', id, expire);
+      }
+
+      alert("추가되었습니다");
+    }
+ </script>
+    <style>
+       .slider{
+    width: 320px;
+    height: 240px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden; /* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드 들이 보이지 않도록 가림 */
+}
+.slider input[type=radio]{
+    display: none;
+}
+ul.imgs{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ul.imgs li{
+    position: absolute;
+    left: 320px;
+    transition-delay: 1s; /* 새 슬라이드가 이동해 오는 동안 이전 슬라이드 이미지가 배경이 보이도록 지연 */
+
+    padding: 0;
+    margin: 0;
+}
+.bullets{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    z-index: 2;
+}
+.bullets label{
+    display: inline-block;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.55);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+/* 현재 선택된 불릿 배경 흰색으로 구분 표시 */
+.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
+    left: 0;
+    transition: 0.5s;
+    z-index:1;
+}
+.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
+    left: 0;
+    transition: 0.5s;
+    z-index:1;
+}
+.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
+    left: 0;
+    transition: 0.5s;
+    z-index:1;
+}
+.slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
+    left: 0;
+    transition: 0.5s;
+    z-index:1;
+}
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
+        <a class="nav-link" href="{%url 'campus:index'%}">캠퍼스 보기</a>
+        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="v62_325" id="building_list">
+
+    <div class="v62_341"><a href="/" class="v62_342" id="building_list_item_whitehorse">백마관</a></div>
+    <div class="v62_343"><a href="/" class="v62_344" id="building_list_item_bairdhall">베어드홀</a></div>
+    <div class="v62_345"><a href="/" class="v62_346" id="building_list_item_venture">벤처기업중소센터</a></div>
+    <div class="v62_347"><a href="/" class="v62_348" id="building_list_item_waterfall">분수대</a></div>
+    <div class="v62_349"><a href="/" class="v62_350" id="building_list_item_gyeongsang">숭덕경상관</a></div>
+</div>
+
+
+<div class="v62_667">
+    <div class="v62_669">
+        <div class="v62_670"></div>
+        <iconify-icon icon="bx:building" class="building" height="20"></iconify-icon>
+    </div>
+    <span class="v73_998">건물별 보기</span>
+    <div>
+    <iconify-icon icon="clarity:star-line" class="v73_1002" height="22" onclick="addCookie({{barrier_free_info.id}})"></iconify-icon>
+    </div>
+</div>
+
+<div class="v283_2912" id="building_details_tab_menu_background">
+    <div class="v283_2913" id="building_details_tab_menu">
+        <span class="v283_2915" id="building_details_tab_menu_item_info">건물 정보</span>
+        <span class="v283_2917" id="building_details_tab_menu_item_barrier_info">배리어프리 정보</span>
+        <span class="v283_2919" id="building_details_tab_menu_item_community">커뮤니티</span>
+<!--        <span class="v283_2921" id="building_details_menu_item_toilet">장애인 화장실</span>-->
+<!--        <span class="v283_2923" id="building_details_menu_item_parking">장애인 전용 주차구역</span>-->
+    </div>
+    <div class="v283_2924 current" id="building_details_tab_menu_content_info">
+        <div class="v414_1385" id="building_details_tab_menu_content_info_list_area">
+            <div class="v414_1386" id="building_details_tab_menu_content_info_list_address">
+                {%for loc in barrier_free_info.location_set.all%}
+                <span class="v414_1387">{{loc.address}}</span>
+                {%endfor%}
+                <iconify-icon icon="clarity:map-marker-line" class="v414_1393" id="address_icon" height="26"></iconify-icon>
+            </div>
+            <div class="v414_1397" id="building_details_tab_menu_content_info_list_isOpen">
+                <div class="v414_1403">
+                    <span class="v414_1402">서비스 준비중입니다</span>
+                    <span class="v414_1404">서비스 준비중입니다</span>
+                </div>
+                <iconify-icon  icon="carbon:time" class="v414_1398" id="isOpen_icon" height="26"></iconify-icon>
+            </div>
+            <div class="v414_1409" id="building_details_tab_menu_content_info_list_site">
+                <iconify-icon icon="fontisto:world-o" class="v414_1410" id="site_icon" height="26"></iconify-icon>
+                <span class="v414_1412">서비스 준비중입니다</span>
+            </div>
+            <div class="v414_1413" id="building_details_tab_menu_content_info_list_call">
+                <iconify-icon icon="fluent:call-32-regular" class="v414_1414" id="call_icon" height="26"></iconify-icon>
+                <span class="v414_1416">서비스 준비중입니다</span>
+            </div>
+        </div>
+    </div>
+    <div class="v283_2924" id="building_details_tab_menu_content_barrier_info">
+        <div class="floating_btn" id="barrier_info_floating_btn">
+            <a href="javascript:barrier_openPop();">
+                <iconify-icon icon="mingcute:quill-pen-line" height="36px"></iconify-icon>
+                <span class="floating_btn_text">정보 등록</span>
+            </a>
+        </div>
+        <div class="v414_1385" id="building_details_tab_menu_content_barrier_info_list_area">
+            <div class="v414_3000" id="building_details_tab_menu_content_barrier_info_list_exit_area">
+                <div class="v414_3513" id="building_details_tab_menu_content_barrier_info_list_exit_desc">
+                    <div class="v459_3132" id="exit_desc_title">
+                        <iconify-icon icon="clarity:talk-bubbles-line" height="24px" class="v459_3133"></iconify-icon>
+                        <span class="v459_3135">배리어프리 정보</span>
+                    </div>
+                    <div class="v414_3003">
+                        <div class="v414_3001">{%for loc in barrier_free_info.location_set.all%}{{loc.name}}{%endfor%}</div>
+                        <div class="v414_3002"> <!--배리어프리 정보-->
+                            {%if barrier_free_info.is_elevator%}
+                            <p>엘레베이터 있음</p>
+                            {%else%}
+                            <p>엘레베이터 없음</p>
+                            {%endif%}
+
+                            {%if barrier_free_info.is_braille%}
+                           <p>점자블록 있음</p>
+                            {%else%}
+                            <p>점자블록 없음</p>
+                            {%endif%}
+
+                            {%if barrier_free_info.is_ramp%}
+                            <p>경사로 있음</p>
+                            {%else%}
+                            <p>경사로 없음</p>
+                            {%endif%}
+
+                            {%if barrier_free_info.is_accessible_toilet%}
+                            <p>장애인화장실 있음</p>
+                            {%else%}
+                            <p>장애인화장실 없음</p>
+                            {%endif%}
+
+                            <p>장애인 전용 주차 공간 수 {{barrier_free_info.parking_count}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="v414_1513" id="building_details_tab_menu_content_barrier_info_list_exit_pic">
+                    <div class="slider">
+    <input type="radio" name="slide" id="slide1" checked>
+    <input type="radio" name="slide" id="slide2">
+    <input type="radio" name="slide" id="slide3">
+    <input type="radio" name="slide" id="slide4">
+    <ul id="imgholder" class="imgs">
+        <li><img src="../../media/{{barrier_free_info.elevator_img}}"></li>
+        <li><img src="../../media/{{barrier_free_info.entrance_img}}" ></li>
+        <li><img src="../../media/{{barrier_free_info.toilet_img}}" ></li>
+        <li><img src="../../media/{{barrier_free_info.parking_img}}" ></li>
+    </ul>
+    <div class="bullets">
+        <label for="slide1">&nbsp;</label>
+        <label for="slide2">&nbsp;</label>
+        <label for="slide3">&nbsp;</label>
+        <label for="slide4">&nbsp;</label>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="popup_layer" id="barrier_popup_layer" style="display: none;">
+          <div class="popup_box">
+              <div id="barrier_popup_close_btn" style="height: 10px; width: 375px; float: top;">
+                <a href="javascript:barrier_closePop();">
+                    <img src="../static/admin/img/ic_close.svg" class="m_header-banner-close" width="36px" height="36px">
+                </a>
+              </div>
+              <!--팝업 컨텐츠 영역-->
+              <div class="popup_cont">
+                  <h2> 배리어프리 정보 등록하기</h2>
+                  <div id="barrier_write_area">
+                    <form enctype="multipart/form-data" action="#" method="post" name="community_board">
+                        <div style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                            <select name="barrier_category" style="padding:7px; margin-bottom:3px; margin-right:3px;">
+                                <option value="출입구">출입구</option>
+                                <option value="승강기">승강기</option>
+                                <option value="화장실">화장실</option>
+                                <option value="기타">기타</option>
+                            </select>
+                            <div id="barrier_in_author" style="display:inline-block; margin-right:3px;">
+                                <textarea name="title" id="barrier_author" rows="1" cols="10" placeholder="작성자" maxlength="10" style="padding:7px;" required></textarea>
+                            </div>
+                            <div id="barrier_in_password" style="display:inline-block;">
+                                <textarea name="title" id="barrier_password" rows="1" cols="8" placeholder="비밀번호" maxlength="8" style="padding:7px;" required></textarea>
+                            </div>
+                        </div>
+
+                        <div id="barrier_in_title">
+                            <textarea name="title" id="barrier_utitle" rows="1" cols="55" placeholder="제목" maxlength="100" style="padding:7px;" required></textarea>
+                        </div>
+
+                        <div id="barrier_in_content">
+                            <textarea name="content" id="barrier_ucontent" rows="10" cols="55" placeholder="내용" style="padding:7px;" required></textarea>
+                        </div>
+
+                        <input type="file" name="SelectFile"/>
+
+                        <div class="bt_se">
+                            <button type="submit" class="popup_btn" style="float: bottom; margin-top: 100px;">등록</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="v283_2924" id="building_details_tab_menu_content_community">
+        <div class="floating_btn" id="community_floating_btn">
+            <a href="javascript:community_openPop();">
+                <iconify-icon icon="mingcute:quill-pen-line" height="36px"></iconify-icon>
+                <span class="floating_btn_text">글쓰기</span>
+            </a>
+        </div>
+        <div class="v414_1385" id="building_details_tab_menu_content_community_list_area">
+            <h1 class="board_title" id="free_board_title">자유게시판</h1>
+            <table class="v461_1282" id="free_board" style="table-layout:fixed;">
+                <thead class="thead">
+                    <tr class="tr">
+                        <th class="th-1">작성자</th>
+                        <th class="th-2">내용</th>
+                        <th class="th-3">작성일</th>
+
+                    </tr>
+                </thead>
+                <script>
+
+                </script>
+                <tbody>
+                {%for reply in barrier_free_info.reply_set.all%}
+                    <tr>
+                      <td>{{reply.ip}}</td>
+                      <td><div style="wide:50px;text-overflow:ellipsis;">{{reply.text}}</div></td>
+                      <td>{{reply.createdate}}</td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="popup_layer" id="community_popup_layer" style="display: none;">
+          <div class="popup_box">
+              <div id="community_popup_close_btn" style="height: 10px; width: 375px; float: top;">
+                <a href="javascript:community_closePop();">
+                    <img src="../static/admin/img/ic_close.svg" class="m_header-banner-close" width="36px" height="36px">
+                </a>
+              </div>
+              <!--팝업 컨텐츠 영역-->
+              <div class="popup_cont">
+                  <h2> 글 작성하기</h2>
+                  <div id="community_write_area">
+                    <form enctype="multipart/form-data" action="{%url 'common:reply_create' barrier_free_info.id%}" method="post" name="community_board">
+                    {%csrf_token%}
+
+
+
+
+                        <div class="wi_line"></div>
+                        <div id="in_content">
+                            <textarea name={{reply_form.text.name}} id="community_ucontent" rows="10" cols="55" placeholder="내용" style="padding:7px;" required></textarea>
+                        </div>
+
+                        <div class="bt_se">
+                            <button type="submit" class="popup_btn" style="float: bottom; margin-top: 100px;">등록</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<script>
+<!--    https://homzzang.com/b/js-1317-->
+    document.getElementById('building_details_tab_menu_item_info').addEventListener('click', function () {
+        document.getElementById('building_details_tab_menu_item_info').style.backgroundColor = "#ffffff";
+        document.getElementById('building_details_tab_menu_item_barrier_info').style.background = "none";
+        document.getElementById('building_details_tab_menu_item_community').style.background = "none";
+
+        document.getElementById('building_details_tab_menu_content_barrier_info').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_community').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_info').classList.add('current');
+    });
+    document.getElementById('building_details_tab_menu_item_barrier_info').addEventListener('click', function () {
+        document.getElementById('building_details_tab_menu_item_barrier_info').style.backgroundColor = "#ffffff";
+        document.getElementById('building_details_tab_menu_item_info').style.background = "none";
+        document.getElementById('building_details_tab_menu_item_community').style.background = "none";
+
+        document.getElementById('building_details_tab_menu_content_info').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_community').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_barrier_info').classList.add('current');
+    });
+    document.getElementById('building_details_tab_menu_item_community').addEventListener('click', function () {
+        document.getElementById('building_details_tab_menu_item_community').style.backgroundColor = "#ffffff";
+        document.getElementById('building_details_tab_menu_item_info').style.background = "none";
+        document.getElementById('building_details_tab_menu_item_barrier_info').style.background = "none";
+
+        document.getElementById('building_details_tab_menu_content_info').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_barrier_info').classList.remove('current');
+        document.getElementById('building_details_tab_menu_content_community').classList.add('current');
+    });
+</script>
+<script>
+<!--https://simbasimba.tistory.com/11-->
+<!--https://gopae02.tistory.com/92-->
+<!--    function ViewLayer(){-->
+<!--        if(document.getElementById("Pop").style.display=="none"){-->
+<!--           document.getElementById("Pop").style.display='inline'-->
+<!--        }else{-->
+<!--           document.getElementById("Pop").style.display='none'-->
+<!--        }-->
+<!--     }-->
+
+    function barrier_openPop() {
+        document.getElementById("barrier_popup_layer").style.display = "block";
+
+    }
+
+    function barrier_closePop() {
+        document.getElementById("barrier_popup_layer").style.display = "none";
+    }
+
+    function community_openPop() {
+        document.getElementById("community_popup_layer").style.display = "block";
+
+    }
+
+    function community_closePop() {
+        document.getElementById("community_popup_layer").style.display = "none";
+    }
+</script>
+

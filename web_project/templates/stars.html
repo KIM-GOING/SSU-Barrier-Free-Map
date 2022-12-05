@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>즐겨찾기</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+</head>
+
+<body>
+<div class="v414_2090">
+  <div class="v414_2120">
+    <span class="v414_2121">즐겨찾는 장소</span>
+  </div>
+  <div class="v473_2078">
+    <table id="star_places_list_area" align="center">
+      <tbody>
+        <tr>
+          <td class="td-1"><span class="fa fa-star star_places_list_item_star_icon_building"></span></td>
+          <td class="td-2"><a href="#" class="star_places_list_item_name_building">정보과학관</a></td>
+          <td class="td-3"><span class="star_places_list_item_address">서울 동작구 사당로 50</span></td>
+          <td class="td-4"><img src="../static/admin/img/ic_close.svg" class="star_places_list_item_delete_icon" onclick="deleteRow(this)"></img></td>
+        </tr>
+      <tr>
+        <td class="td-1"><span class="fa fa-star star_places_list_item_star_icon_restaurant"></span></td>
+          <td class="td-2"><a href="#" class="star_places_list_item_name_restaurant">정보과학관</a></td>
+          <td class="td-3"><span class="star_places_list_item_address">서울 동작구 사당로 50</span></td>
+          <td class="td-4"><img src="../static/admin/img/ic_close.svg" class="star_places_list_item_delete_icon" onclick="deleteRow(this)"></img></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
+<style type="text/css">
+    @import url("../static/admin/css/stars.css");
+</style>
+<script>
+function deleteRow(close) {
+  var row = close.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+</script>
+<script>
+<!--https://dyooni.tistory.com/48-->
+  var list = document.getElementById("star_places_list_area");
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  td1.className +='td-1';
+  let star = document.createElement("span");
+  star.className += 'fa fa-star star_places_list_item_star_icon_restaurant';
+  td1.appendChild(star);
+  tr.appendChild(td1);
+
+  let td2 = document.createElement("td");
+  td1.className +='td-2';
+  let name = document.createElement("a");
+  name.className += 'star_places_list_item_name_restaurant';
+  name.href="#";
+  name.innerHTML="취향"
+  td2.appendChild(name);
+  tr.appendChild(td2);
+
+  let td3 = document.createElement("td");
+  td1.className +='td-3';
+  let addr = document.createElement("span");
+  addr.className += 'star_places_list_item_address';
+  addr.innerHTML="00길00로00길00로"
+  td3.appendChild(addr);
+  tr.appendChild(td3);
+
+  let td4 = document.createElement("td");
+  td4.className +='td-4';
+  let close = document.createElement("img");
+  close.className += 'star_places_list_item_delete_icon';
+  close.src="../static/admin/img/ic_close.svg";
+  close.setAttribute("onclick","deleteRow(this);");
+  td4.appendChild(close);
+  tr.appendChild(td4);
+
+  list.appendChild(tr);
+
+</script>
