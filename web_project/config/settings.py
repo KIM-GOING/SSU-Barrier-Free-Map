@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.conf.global_settings import LOGOUT_REDIRECT_URL
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -139,6 +140,19 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_SECURE_URLS = True       # use http instead of https
 AWS_QUERYSTRING_AUTH = False     # don't add complex authentication-related query parameters for requests
 
-AWS_S3_ACCESS_KEY_ID = 'ACCESS_KEY_ID'
-AWS_S3_SECRET_ACCESS_KEY = 'SECRET_ACCESS_KEY'
+# AWS S3 ACCESS KEY 숨기기
+secret_file = os.path.join(BASE_DIR, 'aws_id.json')
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+AWS_S3_ACCESS_KEY_ID = get_secret("AWS_S3_ACCESS_KEY_ID")
+AWS_S3_SECRET_ACCESS_KEY = get_secret("AWS_S3_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = 'barrierfreebucket'
