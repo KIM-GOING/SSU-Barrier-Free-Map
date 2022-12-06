@@ -89,6 +89,7 @@ a {
 .aside {
   display: flex;
   flex-direction: column;
+  min-width: 170px;
   max-width: 170px;
   flex: auto;
   background-color: white;
@@ -123,11 +124,18 @@ a {
 
 .main {
   background-color: #ffd7c5;
+  overflow: hidden;
+}
+
+#map {
+  width: 1730px;
+  height: 743px;
+  background-color: #ff7236;
 }
 
 .footer {
   display: flex;
-  height: 50px;
+  min-height: 50px;
   margin-top: auto;
   flex-direction: row;
   justify-content: center;
