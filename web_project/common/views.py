@@ -89,7 +89,7 @@ def barrier_free_info_detail(request, barrier_free_info_id):
     reply_form = ReplyForm()
 
     context = {'barrier_free_info': barrier_free_info,'reply_form':reply_form}
-    return render(request, 'common/barrier_detail.html',context)
+    return render(request, 'restaurant/01-orange-details.html',context) #common/barrier_detail.html
 
 
 def reply_create(request, barrier_free_info_id):

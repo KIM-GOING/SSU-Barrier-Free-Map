@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="ko">
+  <head>
+    <title>내 주변 보기 details</title>
+    <link href="{% static 'admin/css/01-orange-details.css' %}" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/29749be41c.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="wrap" class="wrap">
+
+      <!-- HEADER 영역 -->
+      <header class="header">
+        <a href="/" class="header-logo">
+          <img
+            src="{% static 'admin/img/Logo_orange.png' %}"
+            alt="SSU-Barrier-Free-Map"
+            width="132px"
+            height="39px"
+          />
+        </a>
+        <div class="header-text">
+          <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
+          <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+          <a href="/" id="header-text-FAVORITES">즐겨찾는 장소</a>
+        </div>
+      </header>
+
+      <!-- NAV 영역 -->
+      <div class="nav">
+        <div class="nav-wrap">
+          <span class="nav-wrap-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
+          <span class="nav-wrap-text"> 내 주변 보기 </span>
+        </div>
+      </div>
+
+      <!-- CONTENT 영역 -->
+      <div class="content">
+
+        <!-- 좌측 사이드 바 -->
+        <div class="aside">
+          <a href="01-orange-details.html" class="aside-menu" id="aside-menu-1" >내 주변 보기</a>
+          <a href="#main-Information" class="aside-menu" id="aside-menu-2">장소 정보</a>
+          <a href="#main-BarrierFree" class="aside-menu" id="aside-menu-3">배리어프리 현황</a>
+          <a href="#main-Community" class="aside-menu" id="aside-menu-4">커뮤니티</a>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main">
+            <div class="main-wrap">
+
+              <!-- 메인 콘텐츠 내비게이션 바 -->
+                <div class="main-wrap-nav">
+                    <a href="#main-Information" id="main-nav-menu-1">장소 정보</a>
+                    <a href="#main-BarrierFree" id="main-nav-menu-2">배리어프리 정보</a>
+                    <a href="#main-Community" id="main-nav-menu-3">커뮤니티</a>
+                </div>
+
+                <!-- 메인 콘텐츠 장소 정보 -->
+                <div id="main-Information" class="main-wrap-content">
+                    <div class="main-content-information-1">
+                      <div class="">
+                        {%for loc in barrier_free_info.location_set.all%}
+                        <span class="v414_1387">{{loc.address}}</span>
+                        {%endfor%}
+                        <iconify-icon icon="clarity:map-marker-line" class="v414_1393" id="address_icon" height="26"></iconify-icon>
+                      </div>
+                    </div>
+                    <div class="main-content-information-2"></div>
+                    <div class="main-content-information-3"></div>
+                    <div class="main-content-information-4"></div>
+                </div>
+
+                <!-- 메인 콘텐츠 배리어프리 정보 -->
+                <div id="main-BarrierFree" class="main-wrap-content">
+                  {%if barrier_free_info.is_elevator%}
+                  <p>엘레베이터 있음</p>
+                  {%else%}
+                  <p>엘레베이터 없음</p>
+                  {%endif%}
+
+                  {%if barrier_free_info.is_braille%}
+                 <p>점자블록 있음</p>
+                  {%else%}
+                  <p>점자블록 없음</p>
+                  {%endif%}
+
+                  {%if barrier_free_info.is_ramp%}
+                  <p>경사로 있음</p>
+                  {%else%}
+                  <p>경사로 없음</p>
+                  {%endif%}
+
+                  {%if barrier_free_info.is_accessible_toilet%}
+                  <p>장애인화장실 있음</p>
+                  {%else%}
+                  <p>장애인화장실 없음</p>
+                  {%endif%}
+
+                  <p>장애인 전용 주차 공간 수 {{barrier_free_info.parking_count}}</p>
+
+                  <br>
+
+                  <div class="v414_1513" id="building_details_tab_menu_content_barrier_info_list_exit_pic">
+                    <div class="slider">
+                      <input type="radio" name="slide" id="slide1" checked>
+                      <input type="radio" name="slide" id="slide2">
+                      <input type="radio" name="slide" id="slide3">
+                      <input type="radio" name="slide" id="slide4">
+                      <ul id="imgholder" class="imgs">
+                        <li><img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.elevator_img}}" alt="elevator_img"></li>
+                        <li><img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.entrance_img}}" alt="entrance_img"></li>
+                        <li><img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.toilet_img}}" alt="toilet_img"></li>
+                        <li><img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.parking_img}}" alt="parking_img"></li>
+                      </ul>
+                      <div class="bullets">
+                          <label for="slide1">&nbsp;</label>
+                          <label for="slide2">&nbsp;</label>
+                          <label for="slide3">&nbsp;</label>
+                          <label for="slide4">&nbsp;</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <!-- 메인 콘텐츠 커뮤니티 -->
+                <div id="main-Community" class="main-wrap-content">
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img 
+            id="footer-logo"
+            src="{% static 'admin/img/Logo_orange.png' %}"
+            alt="SSU-Barrier-Free-Map"
+            width="100px"
+            height="31px"
+          />
+          <p id="footer-text">
+            SSU-BARRIER-FREE-MAP @ 오픈소스기반기초설계 12조 김하빈, 박순용, 서민비, 장우영
+          </p>
+      </footer>
+
+      <script>
+        var B1 = document.querySelector('#main-nav-menu-1');
+        var B2 = document.querySelector('#main-nav-menu-2');
+        var B3 = document.querySelector('#main-nav-menu-3');
+        var S1 = document.querySelector('#aside-menu-2');
+        var S2 = document.querySelector('#aside-menu-3');
+        var S3 = document.querySelector('#aside-menu-4');
+
+        B1.onclick = function() {
+          B1.style.backgroundColor = 'white';
+          B2.style.backgroundColor = '#ffd7c5';
+          B3.style.backgroundColor = '#ffd7c5';
+        }
+        S1.onclick = function() {
+          B1.style.backgroundColor = 'white';
+          B2.style.backgroundColor = '#ffd7c5';
+          B3.style.backgroundColor = '#ffd7c5';
+        }
+
+        B2.onclick = function() {
+          B1.style.backgroundColor = '#ffd7c5';
+          B2.style.backgroundColor = 'white';
+          B3.style.backgroundColor = '#ffd7c5';
+        }
+        S2.onclick = function() {
+          B1.style.backgroundColor = '#ffd7c5';
+          B2.style.backgroundColor = 'white';
+          B3.style.backgroundColor = '#ffd7c5';
+        }
+
+        B3.onclick = function() {
+          B1.style.backgroundColor = '#ffd7c5';
+          B2.style.backgroundColor = '#ffd7c5';
+          B3.style.backgroundColor = 'white';
+        }
+        S3.onclick = function() {
+          B1.style.backgroundColor = '#ffd7c5';
+          B2.style.backgroundColor = '#ffd7c5';
+          B3.style.backgroundColor = 'white';
+        }
+      </script>
+
+  </body>
+</html>
