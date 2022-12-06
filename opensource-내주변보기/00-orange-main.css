@@ -15,11 +15,12 @@ a {
 .wrap {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .header {
   display: flex;
-  height: 50px;
+  min-height: 50px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: rgb(255, 255, 255);
 }
@@ -54,7 +55,7 @@ a {
 }
 
 .nav {
-  height: 100px;
+  min-height: 100px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
   margin-top: 2px;
@@ -121,9 +122,6 @@ a {
 }
 
 .main {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
   background-color: #ffd7c5;
 }
 

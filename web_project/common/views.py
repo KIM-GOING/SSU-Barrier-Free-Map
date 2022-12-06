@@ -109,4 +109,4 @@ def reply_create(request, barrier_free_info_id):
     return redirect('common:barrier_free_info_detail', barrier_free_info_id=barrier_free_info.id)
 
 def index(request):
-    return render(request,'base.html')
+    return render(request,'middle.html')

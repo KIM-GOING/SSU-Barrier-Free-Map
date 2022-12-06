@@ -1,32 +1,19 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {%load static%}
-<html>
-<head>
+
+{% block head %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-        <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
-    <style>
+  <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+  <style>
     img {
       font-size:20px;
     }
   </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
-        <a class="nav-link" href="{%url 'campus:index'%}">캠퍼스 보기</a>
-        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
-      </div>
-    </div>
-  </div>
-</nav>
+{%endblock%}
+
+
+{% block content %}
 <div class="v62_325" id="building_list">
     <div class="v62_327"><span class="v62_328" id="building_list_item_building">건물별 보기</span></div>
     <div class="v62_329"><a href="/" class="v62_330" id="building_list_item_education">교육관</a></div>
@@ -101,9 +88,7 @@
         <a href="/" class="v24_469" id="building_map_item_chomansik">조만식기념관</a>
     </div>
 </div>
-</body>
-</html>
-<br/><br/>
+
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 <script type="text/javascript" src="../static/admin/js/building_main.js"></script>
 <style>
@@ -1266,3 +1251,4 @@ body {
   text-align: left;
 }
 </style>
+{%endblock%}
