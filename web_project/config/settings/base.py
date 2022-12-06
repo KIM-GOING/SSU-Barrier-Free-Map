@@ -16,7 +16,7 @@ import os, json
 from django.conf.global_settings import LOGOUT_REDIRECT_URL
 from django.core.exceptions import ImproperlyConfigured
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-0hb^qw+d^^1iv^)kc&yquy_pthmcv%=v)65xn(sjx#g3w5(0-=
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['3.36.19.163','localhost']
+ALLOWED_HOSTS = ['3.36.19.163']
 
 
 # Application definition
