@@ -6,19 +6,22 @@
 <body>
 <div class="v24_766" id="middle_area">
   <div class="v24_767" id="restaurant_area">
-    <span class="v24_768">식당가 보기</span>
-    <span class="v24_769">Lorem Ipsum has been the
-    industry's standard dummy text
-    ever since the 1500s, when an
-    unknown printer took a galley of
-    type and scrambled it to make
-    a type specimen book.</span>
-    <div class="v24_770" id="restaurant_icon_area">
+    <a href="{% url 'restaurant:marker' %}">
+      <span class="v24_768">식당가 보기</span>
+      <span class="v24_769">Lorem Ipsum has been the
+      industry's standard dummy text
+      ever since the 1500s, when an
+      unknown printer took a galley of
+      type and scrambled it to make
+      a type specimen book.
+      </span>
+      <div class="v24_770" id="restaurant_icon_area">
       <div class="v24_773" id="restaurant_circle" onmouseover="this.style.background='rgba(255,114,54,1)';" onmouseout="this.style.background='none';"></div>
       <div class="v24_771"  id="restaurant_icon_box">
         <iconify-icon icon="fluent:food-24-filled" id="restaurant_icon" class="restaurant" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(255,114,54,1)';"></iconify-icon>
       </div>
-    </div>
+      </div>
+    </a>
   </div>
   <div class="v24_774">
     <span class="v24_775">건물별 보기</span>
@@ -27,13 +30,16 @@
       ever since the 1500s, when an
       unknown printer took a galley of
       type and scrambled it to make
-      a type specimen book.</span>
+      a type specimen book.
+    </span>
+    <a href ="{%url 'campus:index'%}">
       <div class="v24_781">
         <div class="v24_785" onmouseover="this.style.background='rgba(140,157,226,1)';" onmouseout="this.style.background='none';"></div>
         <div class="v24_782">
           <iconify-icon icon="bx:building" class="building" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(140,157,226,1)';"></iconify-icon>
         </div>
       </div>
+    </a>
   </div>
 </div>
 </body>

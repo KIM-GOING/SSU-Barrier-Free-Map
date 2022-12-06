@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  height: 50px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+}
+
+.header-logo {
+  flex: none;
+  margin-top: 4px;
+  margin-left: 15%;
+  margin-right: auto;
+}
+
+.header-text {
+  flex: none;
+  margin: auto;
+  color: #5a5a5a;
+}
+
+#header-text-ABOUTUS,
+#header-text-CONTACT,
+#header-text-FAVORITES {
+  font-size: 10pt;
+  padding: 3px 20px;
+  border-radius: 8px;
+}
+
+#header-text-ABOUTUS:hover,
+#header-text-CONTACT:hover,
+#header-text-FAVORITES:hover {
+  background-color: #ff7236;
+  font-weight: 600;
+  color: white;
+}
+
+.nav {
+  height: 100px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-wrap {
+  flex: none;
+  margin-left: 15%;
+  margin-right: auto;
+}
+
+.nav-wrap-icon {
+  font-size: 20pt;
+  color: #ff7236;
+}
+.nav-wrap-text {
+  font-size: 20pt;
+  font-weight: 600;
+  color: #ff7236;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  margin-top: 2px;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
+  flex: auto;
+  background-color: white;
+}
+
+#aside-menu-1 {
+  font-weight: 600;
+  padding-left: 15%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 11pt;
+  color: #ffd7c5;
+}
+
+#aside-menu-2,
+#aside-menu-3,
+#aside-menu-4 {
+  padding-left: 15%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 11pt;
+  color: #5a5a5a;
+}
+
+#aside-menu-1:hover,
+#aside-menu-2:hover,
+#aside-menu-3:hover,
+#aside-menu-4:hover {
+  background-color: #ffd7c5;
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: #ffd7c5;
+}
+
+.footer {
+  display: flex;
+  height: 50px;
+  margin-top: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-logo {
+  margin-right: 20px;
+}
+
+#footer-text {
+  font-size: 11.5px;
+  color: #5a5a5a;
+}
