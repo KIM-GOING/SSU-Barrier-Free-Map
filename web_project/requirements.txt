@@ -13,3 +13,5 @@ SQLAlchemy==1.4.32
 sqlparse==0.4.3
 tzdata==2022.4
 virtualenv==20.16.5
+boto3==1.26.22
+django-storages==1.13.1

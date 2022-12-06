@@ -1,0 +1,361 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+</head>
+<body>
+{% block content %}
+{% include "main.html" %}
+<div class="v24_766" id="middle_area">
+  <div class="v24_767" id="restaurant_area">
+    <a href="{% url 'restaurant:marker' %}">
+      <span class="v24_768">식당가 보기</span>
+      <span class="v24_769">Lorem Ipsum has been the
+      industry's standard dummy text
+      ever since the 1500s, when an
+      unknown printer took a galley of
+      type and scrambled it to make
+      a type specimen book.
+      </span>
+      <div class="v24_770" id="restaurant_icon_area">
+      <div class="v24_773" id="restaurant_circle" onmouseover="this.style.background='rgba(255,114,54,1)';" onmouseout="this.style.background='none';"></div>
+      <div class="v24_771"  id="restaurant_icon_box">
+        <iconify-icon icon="fluent:food-24-filled" id="restaurant_icon" class="restaurant" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(255,114,54,1)';"></iconify-icon>
+      </div>
+      </div>
+    </a>
+  </div>
+  <div class="v24_774">
+    <span class="v24_775">건물별 보기</span>
+    <span class="v24_776">Lorem Ipsum has been the
+      industry's standard dummy text
+      ever since the 1500s, when an
+      unknown printer took a galley of
+      type and scrambled it to make
+      a type specimen book.
+    </span>
+    <a href ="{%url 'campus:index'%}">
+      <div class="v24_781">
+        <div class="v24_785" onmouseover="this.style.background='rgba(140,157,226,1)';" onmouseout="this.style.background='none';"></div>
+        <div class="v24_782">
+          <iconify-icon icon="bx:building" class="building" height="96" onmouseover="this.style.color='rgba(255,255,255,1)';" onmouseout="this.style.color='rgba(140,157,226,1)';"></iconify-icon>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<stript>
+
+</stript>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v24_766 {
+  width: 100%;
+  height: 668px;
+  background: rgba(249,249,249,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v24_767 {
+  width: 370px;
+  height: 668px;
+  position: relative;
+  top: 0px;
+  left: 720px;
+  border: medium dashed red;
+}
+.v24_768 {
+  width: 117px;
+  color: rgba(255,114,54,1);
+  position: absolute;
+  top: 305px;
+  left: 127px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 22px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_769 {
+  width: 304px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 372px;
+  left: 33px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_770 {
+  width: 177px;
+  height: 177px;
+  position: absolute;
+  top: 97px;
+  left: 97px;
+  border:solid;
+}
+.v24_771 {
+  width: 96px;
+  height: 96px;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  overflow: hidden;
+  border:dotted;
+}
+.restaurant{
+  color: rgba(255,114,54,1);
+  z-index:1
+}
+
+.v24_773 {
+  width: 164px;
+  height: 164px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  border: medium solid rgba(255,114,54,1);
+}
+
+.v24_774 {
+  width: 370px;
+  height: 668px;
+  position: absolute;
+  top: 0px;
+  left: 350px;
+  border: medium dashed red;
+}
+.v24_775 {
+  width: 117px;
+  color: rgba(140,157,226,1);
+  position: absolute;
+  top: 305px;
+  left: 127px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 22px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_776 {
+  width: 304px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 372px;
+  left: 33px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+
+.v24_781 {
+  width: 177px;
+  height: 177px;
+  position: absolute;
+  top: 97px;
+  left: 97px;
+  border: solid;
+
+}
+.v24_782 {
+  width: 107px;
+  height: 96px;
+<!--  background: rgba(255,255,255,1);-->
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 35px;
+  overflow: hidden;
+  border: dotted;
+<!--  building img-->
+}
+.building{
+  color: rgba(140,157,226,1);
+}
+
+.v24_785 {
+  width: 164px;
+  height: 164px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  border: medium solid rgba(140,157,226,1);
+}
+</style>
+{% endblock %}
+</body>
+</html>
+<br/><br/>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<stript>
+
+</stript>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v24_766 {
+  width: 100%;
+  height: 668px;
+  background: rgba(249,249,249,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v24_767 {
+  width: 370px;
+  height: 668px;
+  position: relative;
+  top: 0px;
+  left: 720px;
+  border: medium dashed red;
+}
+.v24_768 {
+  width: 117px;
+  color: rgba(255,114,54,1);
+  position: absolute;
+  top: 305px;
+  left: 127px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 22px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_769 {
+  width: 304px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 372px;
+  left: 33px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_770 {
+  width: 177px;
+  height: 177px;
+  position: absolute;
+  top: 97px;
+  left: 97px;
+  border:solid;
+}
+.v24_771 {
+  width: 96px;
+  height: 96px;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  overflow: hidden;
+  border:dotted;
+}
+.restaurant{
+  color: rgba(255,114,54,1);
+  z-index:1
+}
+
+.v24_773 {
+  width: 164px;
+  height: 164px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  border: medium solid rgba(255,114,54,1);
+}
+
+.v24_774 {
+  width: 370px;
+  height: 668px;
+  position: absolute;
+  top: 0px;
+  left: 350px;
+  border: medium dashed red;
+}
+.v24_775 {
+  width: 117px;
+  color: rgba(140,157,226,1);
+  position: absolute;
+  top: 305px;
+  left: 127px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 22px;
+  opacity: 1;
+  text-align: left;
+}
+.v24_776 {
+  width: 304px;
+  color: rgba(90,90,90,1);
+  position: absolute;
+  top: 372px;
+  left: 33px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+
+.v24_781 {
+  width: 177px;
+  height: 177px;
+  position: absolute;
+  top: 97px;
+  left: 97px;
+  border: solid;
+
+}
+.v24_782 {
+  width: 107px;
+  height: 96px;
+<!--  background: rgba(255,255,255,1);-->
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 35px;
+  overflow: hidden;
+  border: dotted;
+<!--  building img-->
+}
+.building{
+  color: rgba(140,157,226,1);
+}
+
+.v24_785 {
+  width: 164px;
+  height: 164px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  border: medium solid rgba(140,157,226,1);
+}
+</style>

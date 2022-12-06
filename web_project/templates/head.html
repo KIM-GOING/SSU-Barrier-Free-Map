@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <link href="{% static 'admin/css/00-orange-main.css' %}" rel="stylesheet" />
+</head>
+<body>
+<!-- HEADER 영역 -->
+<header class="header">
+    <a href="/" class="header-logo">
+      <img
+        src="{% static 'admin/img/Logo_orange.png' %}"
+        alt="SSU-Barrier-Free-Map"
+        width="132px"
+        height="39px"
+      />
+    </a>
+    <div class="header-text">
+      <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
+      <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+      <a href="/" id="header-text-FAVORITES">즐겨찾는 장소</a>
+    </div>
+  </header>
+</body>
+</html>
