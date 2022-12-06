@@ -1,2 +1,5 @@
 __pycache__/
 aws_id.json
+.idea
+*.sqlite3
+*.json
