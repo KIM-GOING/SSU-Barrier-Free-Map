@@ -59,8 +59,8 @@
           />
         </a>
         <div class="header-text">
-          <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
-          <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+          <a href="{%url 'common:service_not_ready' %}" id="header-text-ABOUTUS">ABOUT US</a>
+          <a href="{%url 'common:service_not_ready' %}" id="header-text-CONTACT">CONTACT</a>
           <a href="/" id="header-text-FAVORITES">즐겨찾는 장소</a>
         </div>
       </header>
@@ -253,7 +253,7 @@
                 <div id="community_write_area">
                   <form
                     enctype="multipart/form-data"
-                    action="#"
+                    action="{%url 'common:reply_create' barrier_free_info.id%}"
                     method="post"
                     name="community_board"
                   >
@@ -299,10 +299,9 @@
               <table id="Community-board">
                 <thead class="thead">
                   <tr class="tr">
-                    <th class="th-1">번호</th>
-                    <th class="th-2">제목</th>
-                    <th class="th-3">글쓴이</th>
-                    <th class="th-4">작성일</th>
+                    <th class="th-1">글쓴이</th>
+                    <th class="th-2">내용</th>
+                    <th class="th-3">작성일</th>
                   </tr>
                 </thead>
                 <script>
@@ -311,11 +310,8 @@
                 <tbody>
                   {%for reply in barrier_free_info.reply_set.all%}
                   <tr>
-                    <td>00</td>
-                    <td>
-                      <a href="#">{{reply.text}}</a>
-                    </td>
-                    <td>{{reply.ip}}</td>
+                    <td><p>{{reply.ip}}</p></td>
+                    <td><p>{{reply.text}}</p></td>
                     <td>{{reply.createdate}}</td>
                   </tr>
                   {%endfor%}

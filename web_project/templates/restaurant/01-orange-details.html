@@ -134,7 +134,11 @@
 
                 <!-- 메인 콘텐츠 커뮤니티 -->
                 <div id="main-Community" class="main-wrap-content">
-
+                    {%for reply in barrier_free_info.reply_set%}
+                    {{reply.ip}}
+                    {{reply.text}}
+                    {{reply.createdate}}
+                    {%endfor%}
                 </div>
             </div>
         </div>

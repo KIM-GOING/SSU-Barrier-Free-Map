@@ -114,3 +114,6 @@ def bookmark(request):
 
 def index(request):
     return render(request,'final_main.html')
+
+def service_not_ready(request):
+    return HttpResponse("서비스 준비중입니다 (- -)(_ _)")

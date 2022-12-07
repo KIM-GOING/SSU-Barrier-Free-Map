@@ -12,4 +12,5 @@ urlpatterns = [
     path('location/create',views.location_create,name='location_create'),
     path('reply/create/<int:barrier_free_info_id>',views.reply_create,name='reply_create'),
     path('bookmark/', views.bookmark, name='bookmark'),
+    path('servicenotready/', views.service_not_ready, name='service_not_ready')
 ]
