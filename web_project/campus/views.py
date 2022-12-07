@@ -10,8 +10,6 @@ def index(request):
     context = {'campus_list' : campus_list}
     return render(request,'campus/campus_index.html',context)
 
-def detail(request,campus_id):
-    campus = get_object_or_404(Campus, pk =campus_id)
-    context = {'campus':campus}
-    return render(request,'campus/campus_detail.html',context)
+def detail(request):
+    return render(request,'campus/purple_details.html')
 
