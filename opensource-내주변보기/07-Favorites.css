@@ -71,47 +71,45 @@ a {
 }
 
 .section {
-  background-color: #fafafa;
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content: center;
   padding: 50px 0px;
-  height: 100%;
   margin-top: 2px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
-.buildings,
-.around {
-  padding: 5%;
+.section::-webkit-scrollbar {
+  display: none;
+}
+
+.favorites-table {
+  border-collapse: collapse;
   margin: 0 5%;
 }
-#buildings-circle {
+
+.favorites-th {
+  background-color: #fafafa;
+}
+
+.location-name-td,
+.location-address-td {
+  text-align: start;
+  padding: 10px 10px;
+}
+
+.location-favorite-td {
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.location-favorite-td > i {
   color: #8c9de2;
 }
-#around-circle {
-  color: #ff7236;
-}
 
-.buildings-title {
-  padding-top: 20px;
-  font-size: 18pt;
-  font-weight: 600;
-  color: #8c9de2;
-}
-
-.around-title {
-  padding-top: 20px;
-  font-size: 18pt;
-  font-weight: 600;
-  color: #ff7236;
-}
-
-.buildings-comment,
-.around-comment {
-  padding-top: 20px;
-  color: #5a5a5a;
+.favorites-tr:hover {
+  background-color: #e7edfb;
 }
 
 .footer {
