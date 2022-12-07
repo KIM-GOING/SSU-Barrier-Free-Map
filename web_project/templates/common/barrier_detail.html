@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,13 +15,13 @@
   </style>
     <link rel="stylesheet" href="{% static '/css/building_details.css' %}?after" type="text/css">
      <script>
-     function setCookie(cookie_name, value, days) {
-      var exdate = new Date();
-      exdate.setDate(exdate.getDate() + days);
-      // 설정 일수만큼 현재시간에 만료값으로 지정
+    function setCookie(cookie_name, value, days) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + days);
+        // 설정 일수만큼 현재시간에 만료값으로 지정
 
-      var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
-      document.cookie = cookie_name + '=' + cookie_value;
+        var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+        document.cookie = cookie_name + '=' + cookie_value;
     }
     function getCookie(cookie_name) {
       var x, y;

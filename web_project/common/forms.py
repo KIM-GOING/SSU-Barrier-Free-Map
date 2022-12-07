@@ -39,4 +39,4 @@ class BarrierFreeInfoForm(forms.ModelForm):
 class ReplyForm(forms.ModelForm):
     class Meta:
         model = Reply
-        fields = ['text']
+        fields = ['text', 'writer']

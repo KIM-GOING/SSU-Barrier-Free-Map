@@ -4,7 +4,7 @@ from common.models import Location,BarrierFreeInfo
 def marker(request):
         marker_list = Location.objects.order_by('id')
         context = {'marker_list': marker_list}
-        return render(request, 'restaurant/00-orange-main.html', context)
+        return render(request, 'restaurant/orange-main.html', context)
 
 def location_check(request):
     address = request.GET.get('address')

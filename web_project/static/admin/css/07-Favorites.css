@@ -49,58 +49,67 @@ a {
 #header-text-ABOUTUS:hover,
 #header-text-CONTACT:hover,
 #header-text-FAVORITES:hover {
-  background-color: #ff7236;
+  background-color: #8c9de2;
   font-weight: 600;
   color: white;
 }
 
 .nav {
-  min-height: 100px;
+  min-height: 200px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
   margin-top: 2px;
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.nav-wrap {
-  flex: none;
-  margin-left: 15%;
-  margin-right: auto;
-}
-
-.nav-wrap-icon {
-  font-size: 20pt;
-  color: #ff7236;
-}
-.nav-wrap-text {
-  font-size: 20pt;
-  font-weight: 600;
-  color: #ff7236;
-}
-
-.content {
-  display: flex;
-  flex: 1;
-  margin-top: 2px;
-}
-
-.aside {
-  display: flex;
-  flex-direction: column;
-  width: 170px;
-  flex: auto;
-  background-color: white;
-}
-
-.main {
-  width: 100%;
-  height: 100%;
-  background-color: #ffd7c5;
-  display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.nav-title {
+  font-size: 36px;
+  color: #5a5a5a;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  padding: 50px 0px;
+  margin-top: 2px;
+  overflow: scroll;
+}
+
+.section::-webkit-scrollbar {
+  display: none;
+}
+
+.favorites-table {
+  border-collapse: collapse;
+  margin: 0 5%;
+}
+
+.favorites-th {
+  background-color: #fafafa;
+}
+
+.location-name-td,
+.location-address-td {
+  text-align: start;
+  padding: 10px 10px;
+}
+
+.location-favorite-td {
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.location-favorite-td > i {
+  color: #8c9de2;
+}
+
+.favorites-tr:hover {
+  background-color: #e7edfb;
 }
 
 .footer {

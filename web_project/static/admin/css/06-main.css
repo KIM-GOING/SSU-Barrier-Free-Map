@@ -49,58 +49,69 @@ a {
 #header-text-ABOUTUS:hover,
 #header-text-CONTACT:hover,
 #header-text-FAVORITES:hover {
-  background-color: #ff7236;
+  background-color: #8c9de2;
   font-weight: 600;
   color: white;
 }
 
 .nav {
-  min-height: 100px;
+  min-height: 200px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
   margin-top: 2px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
-.nav-wrap {
-  flex: none;
-  margin-left: 15%;
-  margin-right: auto;
+.nav-title {
+  font-size: 36px;
+  color: #5a5a5a;
 }
 
-.nav-wrap-icon {
-  font-size: 20pt;
+.section {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  padding: 50px 0px;
+  height: 100%;
+  margin-top: 2px;
+  overflow: hidden;
+}
+
+.buildings,
+.around {
+  padding: 5%;
+  margin: 0 2%;
+}
+#buildings-circle {
+  color: #8c9de2;
+}
+#around-circle {
   color: #ff7236;
 }
-.nav-wrap-text {
-  font-size: 20pt;
+
+.buildings-title {
+  padding-top: 20px;
+  font-size: 18pt;
+  font-weight: 600;
+  color: #8c9de2;
+}
+
+.around-title {
+  padding-top: 20px;
+  font-size: 18pt;
   font-weight: 600;
   color: #ff7236;
 }
 
-.content {
-  display: flex;
-  flex: 1;
-  margin-top: 2px;
-}
-
-.aside {
-  display: flex;
-  flex-direction: column;
-  width: 170px;
-  flex: auto;
-  background-color: white;
-}
-
-.main {
-  width: 100%;
-  height: 100%;
-  background-color: #ffd7c5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.buildings-comment,
+.around-comment {
+  padding-top: 20px;
+  color: #5a5a5a;
 }
 
 .footer {

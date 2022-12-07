@@ -7,6 +7,7 @@ from django.core.paginator import  Paginator
 from common.forms import UserForm,LocationForm,BarrierFreeInfoForm,ReplyForm
 from common.models import Location,BarrierFreeInfo,Reply
 from django.utils import timezone
+from campus.models import Campus
 
 from config import settings
 import datetime
@@ -86,11 +87,11 @@ def location_create(request):
 
 def barrier_free_info_detail(request, barrier_free_info_id):
     barrier_free_info =get_object_or_404(BarrierFreeInfo,pk=barrier_free_info_id)
+    restaurant_info = get_object_or_404(Location,pk=barrier_free_info_id)
     reply_form = ReplyForm()
 
-    context = {'barrier_free_info': barrier_free_info,'reply_form':reply_form}
-    return render(request, 'common/barrier_detail.html',context)
-
+    context = {'barrier_free_info': barrier_free_info, 'restaurant_info': restaurant_info,'reply_form':reply_form}
+    return render(request, 'restaurant/orange-details.html',context) #common/barrier_detail.html
 
 def reply_create(request, barrier_free_info_id):
     barrier_free_info = get_object_or_404(BarrierFreeInfo,pk=barrier_free_info_id)
@@ -108,5 +109,11 @@ def reply_create(request, barrier_free_info_id):
         reply.save()
     return redirect('common:barrier_free_info_detail', barrier_free_info_id=barrier_free_info.id)
 
+def bookmark(request):
+    return render(request, 'common/Favorites.html')
+
 def index(request):
-    return render(request,'middle.html')
+    return render(request,'final_main.html')
+
+def service_not_ready(request):
+    return HttpResponse("서비스 준비중입니다 (- -)(_ _)")

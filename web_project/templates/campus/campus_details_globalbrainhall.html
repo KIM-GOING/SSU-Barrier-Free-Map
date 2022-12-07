@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="ko">
+  <head>
+    <title>건물별 보기 details</title>
+    <link href="{% static 'admin/css/05-purple-details.css' %}" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/29749be41c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function setCookie(key, value, expiredays) {
+          let todayDate = new Date();
+          todayDate.setDate(todayDate.getDate() + expiredays); // 현재 시각 + 일 단위로 쿠키 만료 날짜 변경
+          //todayDate.setTime(todayDate.getTime() + (expiredays * 24 * 60 * 60 * 1000)); // 밀리세컨드 단위로 쿠키 만료 날짜 변경
+          document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+          alert("즐겨찾기에 추가되었습니다.")
+      }
+      function delCookie(key){
+        let todayDate = new Date();
+        document.cookie = key + "=; path=/; expires=" + todayDate.toGMTString() + ";" // 현재 시각 이전이면 쿠키가 만료되어 사라짐.
+        alert("즐겨찾기에서 삭제되었습니다.")
+      }
+      function getCookie(key){
+	      key = new RegExp(key + '=([^;]*)'); // 쿠키들을 세미콘론으로 구분하는 정규표현식 정의
+	      return key.test(document.cookie) ? unescape(RegExp.$1) : ''; // 인자로 받은 키에 해당하는 키가 있으면 값을 반환
+      }
+      function boolCheckCookie(key) {
+        return getCookie(key) != '' ? true : false;
+      }
+      function useCookie(key, value, expiredays) {
+        if(boolCheckCookie(key))
+          return delCookie(key)
+        if(!boolCheckCookie(key))
+          return setCookie(key)
+      }
+    </script>
+    <style>
+      #solid-star {
+        visibility: visible;
+      }
+      #line-star {
+        visibility: visible;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="wrap" class="wrap">
+      <!-- HEADER 영역 -->
+      <header class="header">
+        <a href="/" class="header-logo">
+          <img
+            src="{% static 'admin/img/Logo-purple.png' %}"
+            alt="SSU-Barrier-Free-Map"
+            width="132px"
+            height="39px"
+          />
+        </a>
+        <div class="header-text">
+          <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
+          <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+          <a href="/" id="header-text-FAVORITES" >즐겨찾는 장소</a>
+        </div>
+      </header>
+
+      <!-- NAV 영역 -->
+      <div class="nav">
+        <div class="nav-wrap">
+          <span class="nav-wrap-icon">
+            <i class="fa-regular fa-building"></i>
+          </span>
+          <span class="nav-wrap-text"> 글로벌브레인홀 </span>
+          <span class="nav-wrap-star" style="position:relative;" onclick="useCookie('글로벌브레인홀', 1, 30);" >
+            <!-- 즐겨찾기 X 일 때 -> line star -->
+            <i class="fa-regular fa-star" style="position:absolute; left:0; top:0; margin-left: 10px;" id="line-star"></i>
+            <!-- 즐겨찾기 O 일 때 -> solid star -->
+            <i class="fa-solid fa-star" style="position:absolute; left:0; top:0; margin-left: 10px;" id="solid-star"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- CONTENT 영역 -->
+      <div class="content">
+        <!-- 좌측 사이드 바 -->
+        <div class="aside">
+          <a href="" class="aside-menu-1">건물별 보기</a>
+          <a href="/campus/education" class="aside-menu-2">교육관</a>
+          <a href="/campus/globalbrainhall" class="aside-menu-2">글로벌브레인홀</a>
+          <a href="/campus/ground" class="aside-menu-2">대운동장</a>
+          <a href="/campus/residencehall" class="aside-menu-2">레지던스홀</a>
+          <a href="/campus/culture" class="aside-menu-2">문화관</a>
+          <a href="/campus/future" class="aside-menu-2">미래관</a>
+          <a href="/campus/whitehorse" class="aside-menu-2">백마관</a>
+          <a href="/campus/bairdhall" class="aside-menu-2">베어드홀</a>
+          <a href="/campus/venture" class="aside-menu-2">벤처기업중소센터</a>
+          <a href="/campus/waterfall" class="aside-menu-2">분수대</a>
+          <a href="/campus/gyeongsang" class="aside-menu-2">숭덕경상관</a>
+          <a href="/campus/shinyang" class="aside-menu-2">신양관</a>
+          <a href="/campus/ahneaktai" class="aside-menu-2">안익태기념관</a>
+          <a href="/campus/research" class="aside-menu-2">연구관</a>
+          <a href="/campus/westminsterhall" class="aside-menu-2">웨스트민스터홀</a>
+          <a href="/campus/computersystem" class="aside-menu-2">전산관</a>
+          <a href="/campus/it" class="aside-menu-2">정보과학관</a>
+          <a href="/campus/chomansik" class="aside-menu-2">조만식기념관</a>
+          <a href="/campus/library" class="aside-menu-2">중앙도서관</a>
+          <a href="/campus/jinri" class="aside-menu-2">진리관</a>
+          <a href="/campus/changshin" class="aside-menu-2">창신관</a>
+          <a href="/campus/changui" class="aside-menu-2">창의관</a>
+          <a href="/campus/student" class="aside-menu-2">학생회관</a>
+          <a href="/campus/museum" class="aside-menu-2">한국기독교박물관</a>
+          <a href="/campus/hankyungchik" class="aside-menu-2">한경직기념관</a>
+          <a href="/campus/hyeongnam" class="aside-menu-2">형남공학관</a>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main">
+          <div class="main-wrap">
+            <!-- 장소 정보 -->
+            <div id="main-Information">
+              <h2 class="main-title">장소 정보</h2>
+              <div class="information-address-icon">
+                <i class="fa-regular fa-map" style="font-size: 26px"></i>
+              </div>
+              <div class="main-content" id="information-address-jibeon">
+                서울 동작구 상도동 511
+              </div>
+              <div class="information-detail-icon">
+                <i class="fa-regular fa-comments" style="font-size: 26px"></i>
+              </div>
+              <div class="main-content" id="information-detail-messages">
+                교수님들의 연구실이 상주해있는 건물입니다.
+              </div>
+            </div>
+
+            <!-- 배리어프리 정보 -->
+            <div class="main-BarrierFree" id="main-BarrierFree">
+              <h2 class="main-title">배리어프리 정보</h2>
+
+              <!-- 엘레베이터 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-elevator" style="font-size: 26px"></i>
+              </div>
+              <div class="BarrierFree-elevator">
+                <span class="main-content" id="BarrierFree-default">
+                  엘레베이터
+                </span>
+                <span id="elevator-info" class="BarrierFree-info"> 없음 </span>
+              </div>
+              <div class="BarrierFree-elevator-image">
+                <img src="" alt="elevator_img" style="width: 500px; height: auto;"/>
+              </div>
+
+              <!-- 출입구 경사로 -->
+              <div class="BarrierFree-icon">
+                <i
+                  class="fa-solid fa-hill-rockslide"
+                  style="font-size: 26px"
+                ></i>
+              </div>
+              <div class="BarrierFree-gate">
+                <span class="main-content" id="BarrierFree-default">
+                  출입구 경사로
+                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 없음 </span>
+              </div>
+
+              <!-- 출입구 점자 블록 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-braille" style="font-size: 26px"></i>
+              </div>
+              <div class="BarrierFree-gate">
+                <span class="main-content" id="BarrierFree-default">
+                  출입구 점자 블록
+                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 있음 </span>
+              </div>
+
+              <div class="BarrierFree-gateslope-image">
+                <img src="" alt="entrance_img" style="width: 500px; height: auto;"/>
+              </div>
+
+              <!-- 장애인 화장실 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-restroom" style="font-size: 26px"></i>
+              </div>
+              <div class="BarrierFree-restroom">
+                <span class="main-content" id="BarrierFree-default">
+                  여자 장애인 화장실
+                </span>
+                <span id="restroom-info" class="BarrierFree-info"> 없음 </span>
+              </div>
+              <div class="BarrierFree-image" id="BarrierFree-restroom-image">
+                <img src="" alt="toilet_img" style="width: 500px; height: auto;"/>
+              </div>
+
+              <!-- 장애인 주차 구역 수 -->
+              <div class="BarrierFree-icon">
+                <i
+                  class="fa-solid fa-square-parking"
+                  style="font-size: 26px"
+                ></i>
+              </div>
+              <div class="BarrierFree-parking">
+                <span class="main-content" id="BarrierFree-default">
+                  장애인 주차 구역
+                </span>
+                <span id="parking-info" class="BarrierFree-info"> 0 </span>
+                <span id="BarrierFree-default"> 군데 있음 </span>
+              </div>
+              <div class="BarrierFree-image" id="BarrierFree-parking-image">
+                <img src="" alt="parking_img" style="width: 500px; height: auto;"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img
+          id="footer-logo"
+          src="{% static 'admin/img/Logo-purple.png' %}"
+          alt="SSU-Barrier-Free-Map"
+          width="100px"
+          height="31px"
+        />
+        <p id="footer-text">
+          SSU-BARRIER-FREE-MAP @ 오픈소스기반기초설계 12조 김하빈, 박순용,
+          서민비, 장우영
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
