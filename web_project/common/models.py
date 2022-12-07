@@ -12,7 +12,6 @@ def get_file_path(instance, filename):
     return '/'.join(['common/', ymd_path, uuid_name+ext])
 
 
-
 class BarrierFreeInfo(models.Model):
     is_elevator = models.BooleanField(null=True)
     elevator_img = models.ImageField(null=True , upload_to=get_file_path)

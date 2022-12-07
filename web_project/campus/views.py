@@ -10,6 +10,6 @@ def index(request):
     context = {'campus_list' : campus_list}
     return render(request,'campus/campus_index.html',context)
 
-def detail(request):
-    return render(request,'campus/purple_details.html')
+def detail(request, name):
+    return render(request,'campus/campus_details_'+name+'.html')
 
