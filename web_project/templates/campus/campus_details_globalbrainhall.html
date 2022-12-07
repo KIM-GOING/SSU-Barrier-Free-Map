@@ -2,8 +2,8 @@
 {%load static%}
 <html lang="ko">
   <head>
-    <title>내 주변 보기 details</title>
-    <link href="{% static 'admin/css/01-orange-details copy.css' %}" rel="stylesheet" />
+    <title>건물별 보기 details</title>
+    <link href="{% static 'admin/css/05-purple-details.css' %}" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/29749be41c.js"
       crossorigin="anonymous"
@@ -52,7 +52,7 @@
       <header class="header">
         <a href="/" class="header-logo">
           <img
-            src="{% static 'admin/img/Logo_orange.png' %}"
+            src="{% static 'admin/img/Logo-purple.png' %}"
             alt="SSU-Barrier-Free-Map"
             width="132px"
             height="39px"
@@ -61,7 +61,7 @@
         <div class="header-text">
           <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
           <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
-          <a href="/" id="header-text-FAVORITES">즐겨찾는 장소</a>
+          <a href="/" id="header-text-FAVORITES" >즐겨찾는 장소</a>
         </div>
       </header>
 
@@ -69,10 +69,10 @@
       <div class="nav">
         <div class="nav-wrap">
           <span class="nav-wrap-icon">
-            <i class="fa-solid fa-utensils"></i>
+            <i class="fa-regular fa-building"></i>
           </span>
-          <span class="nav-wrap-text"> {{restaurant_info.name}} </span>
-          <span class="nav-wrap-star" style="position:relative;" onclick="useCookie('{{restaurant_info.name}}', 1, 30);" >
+          <span class="nav-wrap-text"> 글로벌브레인홀 </span>
+          <span class="nav-wrap-star" style="position:relative;" onclick="useCookie('글로벌브레인홀', 1, 30);" >
             <!-- 즐겨찾기 X 일 때 -> line star -->
             <i class="fa-regular fa-star" style="position:absolute; left:0; top:0; margin-left: 10px;" id="line-star"></i>
             <!-- 즐겨찾기 O 일 때 -> solid star -->
@@ -85,18 +85,33 @@
       <div class="content">
         <!-- 좌측 사이드 바 -->
         <div class="aside">
-          <a href="01-orange-details.html" class="aside-menu" id="aside-menu-1"
-            >내 주변 보기</a
-          >
-          <a href="#main-Information" class="aside-menu" id="aside-menu-2"
-            >장소 정보</a
-          >
-          <a href="#main-BarrierFree" class="aside-menu" id="aside-menu-3"
-            >배리어프리 현황</a
-          >
-          <a href="#main-Community" class="aside-menu" id="aside-menu-4"
-            >커뮤니티</a
-          >
+          <a href="" class="aside-menu-1">건물별 보기</a>
+          <a href="/campus/education" class="aside-menu-2">교육관</a>
+          <a href="/campus/globalbrainhall" class="aside-menu-2">글로벌브레인홀</a>
+          <a href="/campus/ground" class="aside-menu-2">대운동장</a>
+          <a href="/campus/residencehall" class="aside-menu-2">레지던스홀</a>
+          <a href="/campus/culture" class="aside-menu-2">문화관</a>
+          <a href="/campus/future" class="aside-menu-2">미래관</a>
+          <a href="/campus/whitehorse" class="aside-menu-2">백마관</a>
+          <a href="/campus/bairdhall" class="aside-menu-2">베어드홀</a>
+          <a href="/campus/venture" class="aside-menu-2">벤처기업중소센터</a>
+          <a href="/campus/waterfall" class="aside-menu-2">분수대</a>
+          <a href="/campus/gyeongsang" class="aside-menu-2">숭덕경상관</a>
+          <a href="/campus/shinyang" class="aside-menu-2">신양관</a>
+          <a href="/campus/ahneaktai" class="aside-menu-2">안익태기념관</a>
+          <a href="/campus/research" class="aside-menu-2">연구관</a>
+          <a href="/campus/westminsterhall" class="aside-menu-2">웨스트민스터홀</a>
+          <a href="/campus/computersystem" class="aside-menu-2">전산관</a>
+          <a href="/campus/it" class="aside-menu-2">정보과학관</a>
+          <a href="/campus/chomansik" class="aside-menu-2">조만식기념관</a>
+          <a href="/campus/library" class="aside-menu-2">중앙도서관</a>
+          <a href="/campus/jinri" class="aside-menu-2">진리관</a>
+          <a href="/campus/changshin" class="aside-menu-2">창신관</a>
+          <a href="/campus/changui" class="aside-menu-2">창의관</a>
+          <a href="/campus/student" class="aside-menu-2">학생회관</a>
+          <a href="/campus/museum" class="aside-menu-2">한국기독교박물관</a>
+          <a href="/campus/hankyungchik" class="aside-menu-2">한경직기념관</a>
+          <a href="/campus/hyeongnam" class="aside-menu-2">형남공학관</a>
         </div>
 
         <!-- 메인 콘텐츠 -->
@@ -106,24 +121,16 @@
             <div id="main-Information">
               <h2 class="main-title">장소 정보</h2>
               <div class="information-address-icon">
-                <i
-                  class="fa-regular fa-map"
-                  style="font-size: 26px"
-                ></i>
+                <i class="fa-regular fa-map" style="font-size: 26px"></i>
               </div>
               <div class="main-content" id="information-address-jibeon">
-                {%for loc in barrier_free_info.location_set.all%}
-                <p>{{loc.address}}</p>
-                {%endfor%}
+                서울 동작구 상도동 511
               </div>
               <div class="information-detail-icon">
-                <i
-                  class="fa-regular fa-comments"
-                  style="font-size: 26px"
-                ></i>
+                <i class="fa-regular fa-comments" style="font-size: 26px"></i>
               </div>
               <div class="main-content" id="information-detail-messages">
-                {{barrier_free_info.detail}}
+                교수님들의 연구실이 상주해있는 건물입니다.
               </div>
             </div>
 
@@ -139,33 +146,24 @@
                 <span class="main-content" id="BarrierFree-default">
                   엘레베이터
                 </span>
-                <span id="elevator-info" class="BarrierFree-info">
-                  {%if barrier_free_info.is_elevator%}
-                  있음
-                  {%else%}
-                  없음
-                  {%endif%}
-                </span>
+                <span id="elevator-info" class="BarrierFree-info"> 없음 </span>
               </div>
               <div class="BarrierFree-elevator-image">
-                <img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.elevator_img}}" alt="elevator_img" />
+                <img src="" alt="elevator_img" style="width: 500px; height: auto;"/>
               </div>
 
               <!-- 출입구 경사로 -->
               <div class="BarrierFree-icon">
-                <i class="fa-solid fa-hill-rockslide" style="font-size: 26px"></i>
+                <i
+                  class="fa-solid fa-hill-rockslide"
+                  style="font-size: 26px"
+                ></i>
               </div>
               <div class="BarrierFree-gate">
                 <span class="main-content" id="BarrierFree-default">
                   출입구 경사로
                 </span>
-                <span id="gateslope-info" class="BarrierFree-info">
-                  {%if barrier_free_info.is_ramp%}
-                  있음
-                  {%else%}
-                  없음
-                  {%endif%}
-                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 없음 </span>
               </div>
 
               <!-- 출입구 점자 블록 -->
@@ -176,16 +174,11 @@
                 <span class="main-content" id="BarrierFree-default">
                   출입구 점자 블록
                 </span>
-                <span id="gateslope-info" class="BarrierFree-info">
-                  {%if barrier_free_info.is_braille%}
-                  있음
-                  {%else%}
-                  없음
-                  {%endif%}
-                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 있음 </span>
               </div>
+
               <div class="BarrierFree-gateslope-image">
-                <img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.entrance_img}}" alt="entrance_img" />
+                <img src="" alt="entrance_img" style="width: 500px; height: auto;"/>
               </div>
 
               <!-- 장애인 화장실 -->
@@ -194,70 +187,31 @@
               </div>
               <div class="BarrierFree-restroom">
                 <span class="main-content" id="BarrierFree-default">
-                  장애인 화장실
+                  여자 장애인 화장실
                 </span>
-                <span id="restroom-info" class="BarrierFree-info">
-                  {%if barrier_free_info.is_accessible_toilet%}
-                  있음
-                  {%else%}
-                  없음
-                  {%endif%}
-                </span>
+                <span id="restroom-info" class="BarrierFree-info"> 없음 </span>
               </div>
               <div class="BarrierFree-image" id="BarrierFree-restroom-image">
-                <img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.toilet_img}}" alt="toilet_img" />
+                <img src="" alt="toilet_img" style="width: 500px; height: auto;"/>
               </div>
 
               <!-- 장애인 주차 구역 수 -->
               <div class="BarrierFree-icon">
-                <i class="fa-solid fa-square-parking" style="font-size: 26px"></i>
+                <i
+                  class="fa-solid fa-square-parking"
+                  style="font-size: 26px"
+                ></i>
               </div>
               <div class="BarrierFree-parking">
                 <span class="main-content" id="BarrierFree-default">
                   장애인 주차 구역
                 </span>
-                <span id="parking-info" class="BarrierFree-info"> {{barrier_free_info.parking_count}} </span>
+                <span id="parking-info" class="BarrierFree-info"> 0 </span>
                 <span id="BarrierFree-default"> 군데 있음 </span>
               </div>
               <div class="BarrierFree-image" id="BarrierFree-parking-image">
-                <img src="https://barrierfreebucket.s3.ap-northeast-2.amazonaws.com/{{barrier_free_info.parking_img}}" alt="parking_img" />
+                <img src="" alt="parking_img" style="width: 500px; height: auto;"/>
               </div>
-            </div>
-
-            <!-- 메인 콘텐츠 커뮤니티 -->
-            <div id="main-Community" class="main-wrap-content">
-              <h2 class="main-title">커뮤니티</h2>
-              <button class="community-writing">글 작성하기</button>
-              <table id="Community-board">
-                <thead class="thead">
-                  <tr class="tr">
-                    <th class="th-1">번호</th>
-                    <th class="th-2">제목</th>
-                    <th class="th-3">글쓴이</th>
-                    <th class="th-4">작성일</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>00</td>
-                    <td>
-                      <a href="#"
-                        >혹시 투썸에서 UI/UX 스터디 하실 분들 계신가요?</a
-                      >
-                    </td>
-                    <td>홍길동</td>
-                    <td>2022.11.24</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      <a href="#">시험 기간 빨리 끝났으면 좋겠다...</a>
-                    </td>
-                    <td>장우영</td>
-                    <td>2022.12.08</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </div>
@@ -266,7 +220,7 @@
       <footer class="footer">
         <img
           id="footer-logo"
-          src="{% static 'admin/img/Logo_orange.png' %}"
+          src="{% static 'admin/img/Logo-purple.png' %}"
           alt="SSU-Barrier-Free-Map"
           width="100px"
           height="31px"
@@ -277,30 +231,5 @@
         </p>
       </footer>
     </div>
-
-    <script>
-      var S1 = document.querySelector('#aside-menu-2');
-      var S2 = document.querySelector('#aside-menu-3');
-      var S3 = document.querySelector('#aside-menu-4');
-
-      S1.onclick = function() {
-        S1.style.backgroundColor = '#ffd7c5';
-        S2.style.backgroundColor = 'white';
-        S3.style.backgroundColor = 'white';
-      }
-
-      S2.onclick = function() {
-        S1.style.backgroundColor = 'white';
-        S2.style.backgroundColor = '#ffd7c5';
-        S3.style.backgroundColor = 'white';
-      }
-
-      S3.onclick = function() {
-        S1.style.backgroundColor = 'white';
-        S2.style.backgroundColor = 'white';
-        S3.style.backgroundColor = '#ffd7c5';
-      }
-    </script>
-
   </body>
 </html>
