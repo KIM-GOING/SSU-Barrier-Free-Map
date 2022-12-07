@@ -51,7 +51,7 @@ a {
 #header-text-ABOUTUS:hover,
 #header-text-CONTACT:hover,
 #header-text-FAVORITES:hover {
-  background-color: #8c9de2;
+  background-color: #ff7236;
   font-weight: 600;
   color: white;
 }
@@ -76,15 +76,15 @@ a {
 
 .nav-wrap-icon {
   font-size: 20pt;
-  color: #8c9de2;
+  color: #ff7236;
 }
 .nav-wrap-text {
   font-size: 20pt;
   font-weight: 600;
-  color: #8c9de2;
+  color: #ff7236;
 }
 .nav-wrap-star {
-  color: #8c9de2;
+  color: #ff7236;
 }
 
 /* CONTENT 영역 */
@@ -95,14 +95,11 @@ a {
   margin-top: 2px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 /* CONTENT - aside(좌측 내비게이션 바) */
 
 .aside {
-  overflow: scroll;
-
   display: flex;
   flex-direction: column;
   max-width: 170px;
@@ -111,20 +108,18 @@ a {
   background-color: white;
 }
 
-.aside::-webkit-scrollbar {
-  display: none;
-}
-
-.aside-menu-1 {
+#aside-menu-1 {
   font-weight: 600;
   padding-left: 15%;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 11pt;
-  color: #efedfb;
+  color: #ffd7c5;
 }
 
-.aside-menu-2 {
+#aside-menu-2,
+#aside-menu-3,
+#aside-menu-4 {
   padding-left: 15%;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -132,9 +127,11 @@ a {
   color: #5a5a5a;
 }
 
-.aside-menu-1:hover,
-.aside-menu-2:hover {
-  background-color: #efedfb;
+#aside-menu-1:hover,
+#aside-menu-2:hover,
+#aside-menu-3:hover,
+#aside-menu-4:hover {
+  background-color: #ffd7c5;
   font-weight: 600;
 }
 
@@ -144,7 +141,7 @@ a {
   height: 100%;
   display: flex;
   flex: 1;
-  background-color: #efedfb;
+  background-color: #ffd7c5;
 }
 
 .main-wrap {
@@ -158,13 +155,9 @@ a {
   padding: 3%;
 }
 
-.main-wrap::-webkit-scrollbar {
-  display: none;
-}
-
 .main-title {
   color: #5a5a5a;
-  border-bottom: 3px solid #8c9de2;
+  border-bottom: 3px solid #ff7236;
 }
 
 .main-content {
@@ -188,7 +181,7 @@ a {
 .BarrierFree-icon {
   width: 50px;
   height: 50px;
-  color: #8c9de2;
+  color: #ff7236;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,11 +200,11 @@ a {
   padding: 10px 0;
   border-radius: 5px;
   border-width: 0;
-  background-color: #efedfb;
+  background-color: #ffd7c5;
 }
 
 .community-writing:hover {
-  background-color: #8c9de2;
+  background-color: #ff7236;
   font-weight: 600;
   color: white;
 }
@@ -233,6 +226,12 @@ a {
 #footer-text {
   font-size: 11.5px;
   color: #5a5a5a;
+}
+
+#Community-board {
+  text-align: center;
+  border: 3px solid #ffd7c5;
+  border-radius: 5px;
 }
 
 .th-1,
