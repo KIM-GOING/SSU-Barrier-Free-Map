@@ -227,7 +227,7 @@
             <!-- 메인 콘텐츠 커뮤니티 -->
             <div id="main-Community" class="main-wrap-content">
               <h2 class="main-title">커뮤니티</h2>
-              <button class="community-writing">글 작성하기</button>
+              <button class="community-writing" onclick="community_openPop();">글 작성하기</button>
               <table id="Community-board">
                 <thead class="thead">
                   <tr class="tr">
@@ -259,6 +259,117 @@
                 </tbody>
               </table>
             </div>
+            <div
+            class="popup_layer"
+            id="community_popup_layer"
+            style="display: none"
+          >
+            <div class="popup_box">
+              <div
+                id="community_popup_close_btn"
+                style="height: 10px; width: 375px; float: top"
+              >
+                <a href="javascript:community_closePop();">
+                  <img
+                    src="../static/admin/img/ic_close.svg"
+                    class="m_header-banner-close"
+                    width="36px"
+                    height="36px"
+                  />
+                </a>
+              </div>
+              <!--팝업 컨텐츠 영역-->
+              <div class="popup_cont">
+                <h2>글 작성하기</h2>
+                <div id="community_write_area">
+                  <form
+                    enctype="multipart/form-data"
+                    action="#"
+                    method="post"
+                    name="community_board"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: left;
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        id="community_in_author"
+                        style="display: inline-block; margin-right: 3px"
+                      >
+                        <textarea
+                          name="title"
+                          id="community_author"
+                          rows="1"
+                          cols="10"
+                          placeholder="작성자"
+                          maxlength="10"
+                          style="padding: 7px"
+                          required
+                        ></textarea>
+                      </div>
+                      <div
+                        id="community_in_password"
+                        style="display: inline-block"
+                      >
+                        <textarea
+                          name="title"
+                          id="community_password"
+                          rows="1"
+                          cols="8"
+                          placeholder="비밀번호"
+                          maxlength="8"
+                          style="padding: 7px"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+  
+                    <div id="in_title">
+                      <textarea
+                        name="title"
+                        id="community_utitle"
+                        rows="1"
+                        cols="55"
+                        placeholder="제목"
+                        maxlength="100"
+                        style="padding: 7px"
+                        required
+                      ></textarea>
+                    </div>
+  
+                    <div class="wi_line"></div>
+                    <div id="in_content">
+                      <textarea
+                        name="content"
+                        id="community_ucontent"
+                        rows="10"
+                        cols="55"
+                        placeholder="내용"
+                        style="padding: 7px"
+                        required
+                      ></textarea>
+                    </div>
+  
+                    <input type="file" name="SelectFile" />
+  
+                    <div class="bt_se">
+                      <button
+                        type="submit"
+                        class="popup_btn"
+                        style="float: bottom; margin-top: 100px"
+                      >
+                        등록
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -299,6 +410,16 @@
         S1.style.backgroundColor = 'white';
         S2.style.backgroundColor = 'white';
         S3.style.backgroundColor = '#ffd7c5';
+      }
+    </script>
+
+    <script>
+      function community_openPop() {
+        document.getElementById("community_popup_layer").style.display = "block";
+      }
+
+      function community_closePop() {
+        document.getElementById("community_popup_layer").style.display = "none";
       }
     </script>
 
