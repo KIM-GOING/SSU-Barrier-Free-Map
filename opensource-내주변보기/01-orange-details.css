@@ -106,6 +106,7 @@ a {
   flex: auto;
   min-width: 170px;
   background-color: white;
+  overflow: hidden;
 }
 
 #aside-menu-1 {
@@ -153,6 +154,10 @@ a {
   flex-direction: column;
   margin: 1%;
   padding: 3%;
+}
+
+.main-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .main-title {

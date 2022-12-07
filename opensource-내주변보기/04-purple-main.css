@@ -103,6 +103,11 @@ a {
   align-items: center;
 }
 
+main > div,
+main > a {
+  bottom: 188px !important;
+  right: 166px !important;
+}
 .v24_192 {
   width: 100%;
   height: 625px;
