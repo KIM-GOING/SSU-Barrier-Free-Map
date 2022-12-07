@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <title>건물별 보기 main</title>
-    <link href="06-main.css" rel="stylesheet" />
+    <link href="{% static 'admin/css/06-main.css' %}" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/29749be41c.js"
       crossorigin="anonymous"
@@ -15,9 +15,9 @@
     <div id="wrap" class="wrap">
       <!-- HEADER 영역 -->
       <header class="header">
-        <a href="04-purple-main.html" class="header-logo">
+        <a href="/" class="header-logo">
           <img
-            src="images/Logo-purple.png"
+            src="{% static 'admin/img/Logo-purple.png' %}"
             alt="SSU-Barrier-Free-Map"
             width="132px"
             height="39px"
@@ -61,7 +61,7 @@
       <footer class="footer">
         <img
           id="footer-logo"
-          src="images/Logo-purple.png"
+          src="{% static 'admin/img/Logo-purple.png' %}"
           alt="SSU-Barrier-Free-Map"
           width="100px"
           height="31px"
