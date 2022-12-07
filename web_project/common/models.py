@@ -43,6 +43,7 @@ class Location(models.Model):
 
 class Reply(models.Model):
     ip = models.CharField(max_length=20,null=True)
+    writer = models.CharField(max_length=20,null=True)
     text = models.TextField(null=True)
     createdate = models.DateTimeField(null=True)
     barrier_free_info = models.ForeignKey(BarrierFreeInfo, on_delete=models.CASCADE,null=True)

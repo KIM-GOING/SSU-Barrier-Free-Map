@@ -257,6 +257,7 @@
                     method="post"
                     name="community_board"
                   >
+                  {%csrf_token%}
                     <div
                       style="
                         display: flex;
@@ -265,55 +266,13 @@
                         align-items: center;
                       "
                     >
-                      <div
-                        id="community_in_author"
-                        style="display: inline-block; margin-right: 3px"
-                      >
-                        <textarea
-                          name="title"
-                          id="community_author"
-                          rows="1"
-                          cols="10"
-                          placeholder="작성자"
-                          maxlength="10"
-                          style="padding: 7px"
-                          required
-                        ></textarea>
-                      </div>
-                      <div
-                        id="community_in_password"
-                        style="display: inline-block"
-                      >
-                        <textarea
-                          name="title"
-                          id="community_password"
-                          rows="1"
-                          cols="8"
-                          placeholder="비밀번호"
-                          maxlength="8"
-                          style="padding: 7px"
-                          required
-                        ></textarea>
-                      </div>
-                    </div>
-  
-                    <div id="in_title">
-                      <textarea
-                        name="title"
-                        id="community_utitle"
-                        rows="1"
-                        cols="55"
-                        placeholder="제목"
-                        maxlength="100"
-                        style="padding: 7px"
-                        required
-                      ></textarea>
+                      
                     </div>
   
                     <div class="wi_line"></div>
                     <div id="in_content">
                       <textarea
-                        name="content"
+                        name={{reply_form.text.name}}
                         id="community_ucontent"
                         rows="10"
                         cols="55"
@@ -322,8 +281,6 @@
                         required
                       ></textarea>
                     </div>
-  
-                    <input type="file" name="SelectFile" />
   
                     <div class="bt_se">
                       <button
@@ -348,25 +305,20 @@
                     <th class="th-4">작성일</th>
                   </tr>
                 </thead>
+                <script>
+
+                </script>
                 <tbody>
+                  {%for reply in barrier_free_info.reply_set.all%}
                   <tr>
                     <td>00</td>
                     <td>
-                      <a href="#"
-                        >혹시 투썸에서 UI/UX 스터디 하실 분들 계신가요?</a
-                      >
+                      <a href="#">{{reply.text}}</a>
                     </td>
-                    <td>홍길동</td>
-                    <td>2022.11.24</td>
+                    <td>{{reply.ip}}</td>
+                    <td>{{reply.createdate}}</td>
                   </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      <a href="#">시험 기간 빨리 끝났으면 좋겠다...</a>
-                    </td>
-                    <td>장우영</td>
-                    <td>2022.12.08</td>
-                  </tr>
+                  {%endfor%}
                 </tbody>
               </table>
             </div>
