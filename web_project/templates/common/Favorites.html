@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="ko">
+  <head>
+    <title>즐겨찾는 장소/SSU-BARRIER-FREE-MAP</title>
+    <link href="{% static 'admin/css/07-Favorites.css' %}" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/29749be41c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function setCookie(key, value, expiredays) {
+          let todayDate = new Date();
+          todayDate.setDate(todayDate.getDate() + expiredays); // 현재 시각 + 일 단위로 쿠키 만료 날짜 변경
+          //todayDate.setTime(todayDate.getTime() + (expiredays * 24 * 60 * 60 * 1000)); // 밀리세컨드 단위로 쿠키 만료 날짜 변경
+          document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+          alert("즐겨찾기에 추가되었습니다.")
+      }
+      function delCookie(key){
+        let todayDate = new Date();
+        document.cookie = key + "=; path=/; expires=" + todayDate.toGMTString() + ";" // 현재 시각 이전이면 쿠키가 만료되어 사라짐.
+        alert("즐겨찾기에서 삭제되었습니다.")
+      }
+      function getCookie(key){
+	      key = new RegExp(key + '=([^;]*)'); // 쿠키들을 세미콘론으로 구분하는 정규표현식 정의
+	      return key.test(document.cookie) ? unescape(RegExp.$1) : ''; // 인자로 받은 키에 해당하는 키가 있으면 값을 반환
+      }
+      function boolCheckCookie(key) {
+        return getCookie(key) != '' ? true : false;
+      }
+      function useCookie(key, value, expiredays) {
+        if(boolCheckCookie(key))
+          return delCookie(key)
+        if(!boolCheckCookie(key))
+          return setCookie(key)
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="wrap" class="wrap">
+      <!-- HEADER 영역 -->
+      <header class="header">
+        <a href="/" class="header-logo">
+          <img
+            src="{% static 'admin/img/Logo-purple.png' %}"
+            alt="SSU-Barrier-Free-Map"
+            width="132px"
+            height="39px"
+          />
+        </a>
+        <div class="header-text">
+          <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
+          <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+          <a href="" id="header-text-FAVORITES"
+            >즐겨찾는 장소</a
+          >
+        </div>
+      </header>
+
+      <!-- NAV 영역 -->
+      <div class="nav">
+        <h1 class="nav-title">즐겨찾는 장소</h1>
+      </div>
+
+      <div class="section">
+        <table class="favorites-table">
+          <th class="favorites-th" id="location-name-th">장소명</th>
+          <th class="favorites-th" id="location-address-th">주소</th>
+          <th class="favorites-th" id="location-favorite-th">즐겨찾기</th>
+          <tr class="favorites-tr">
+            <td class="location-name-td">정보과학관</td>
+            <td class="location-address-td">서울시 동작구 상도로 369</td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">미학당</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 56, 2층 초록색문
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+
+          <tr class="favorites-tr">
+            <td class="location-name-td">투썸플레이스 숭실대점</td>
+            <td class="location-address-td">
+              서울시 동작구 사당로 36-1 서정캐슬 1층 2층
+            </td>
+            <td class="location-favorite-td">
+              <i class="fa-solid fa-star"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <footer class="footer">
+        <img
+          id="footer-logo"
+          src="{% static 'admin/img/Logo-purple.png' %}"
+          alt="SSU-Barrier-Free-Map"
+          width="100px"
+          height="31px"
+        />
+        <p id="footer-text">
+          SSU-BARRIER-FREE-MAP @ 오픈소스기반기초설계 12조 김하빈, 박순용,
+          서민비, 장우영
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -228,38 +228,7 @@
             <div id="main-Community" class="main-wrap-content">
               <h2 class="main-title">커뮤니티</h2>
               <button class="community-writing" onclick="community_openPop();">글 작성하기</button>
-              <table id="Community-board">
-                <thead class="thead">
-                  <tr class="tr">
-                    <th class="th-1">번호</th>
-                    <th class="th-2">제목</th>
-                    <th class="th-3">글쓴이</th>
-                    <th class="th-4">작성일</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>00</td>
-                    <td>
-                      <a href="#"
-                        >혹시 투썸에서 UI/UX 스터디 하실 분들 계신가요?</a
-                      >
-                    </td>
-                    <td>홍길동</td>
-                    <td>2022.11.24</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      <a href="#">시험 기간 빨리 끝났으면 좋겠다...</a>
-                    </td>
-                    <td>장우영</td>
-                    <td>2022.12.08</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div
+              <div
             class="popup_layer"
             id="community_popup_layer"
             style="display: none"
@@ -271,7 +240,7 @@
               >
                 <a href="javascript:community_closePop();">
                   <img
-                    src="../static/admin/img/ic_close.svg"
+                    src="{% static 'admin/img/ic_close.svg' %}"
                     class="m_header-banner-close"
                     width="36px"
                     height="36px"
@@ -370,6 +339,37 @@
               </div>
             </div>
           </div>
+              <table id="Community-board">
+                <thead class="thead">
+                  <tr class="tr">
+                    <th class="th-1">번호</th>
+                    <th class="th-2">제목</th>
+                    <th class="th-3">글쓴이</th>
+                    <th class="th-4">작성일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>00</td>
+                    <td>
+                      <a href="#"
+                        >혹시 투썸에서 UI/UX 스터디 하실 분들 계신가요?</a
+                      >
+                    </td>
+                    <td>홍길동</td>
+                    <td>2022.11.24</td>
+                  </tr>
+                  <tr>
+                    <td>01</td>
+                    <td>
+                      <a href="#">시험 기간 빨리 끝났으면 좋겠다...</a>
+                    </td>
+                    <td>장우영</td>
+                    <td>2022.12.08</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -415,12 +415,12 @@
 
     <script>
       function community_openPop() {
-        document.getElementById("community_popup_layer").style.display = "block";
-      }
+    document.getElementById("community_popup_layer").style.display = "block";
+    }
 
-      function community_closePop() {
-        document.getElementById("community_popup_layer").style.display = "none";
-      }
+    function community_closePop() {
+    document.getElementById("community_popup_layer").style.display = "none";
+    }
     </script>
 
   </body>
