@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="ko">
+  <head>
+    <title>내 주변 보기 details</title>
+    <link href="{% static 'admin/css/01-orange-details copy.css' %}" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/29749be41c.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="wrap" class="wrap">
+      <!-- HEADER 영역 -->
+      <header class="header">
+        <a href="00-orange-main.html" class="header-logo">
+          <img
+            src="{% static 'admin/img/Logo_purple.png' %}"
+            alt="SSU-Barrier-Free-Map"
+            width="132px"
+            height="39px"
+          />
+        </a>
+        <div class="header-text">
+          <a href="02-about-us.html" id="header-text-ABOUTUS">ABOUT US</a>
+          <a href="03-contact.html" id="header-text-CONTACT">CONTACT</a>
+          <a href="/" id="header-text-FAVORITES">즐겨찾는 장소</a>
+        </div>
+      </header>
+
+      <!-- NAV 영역 -->
+      <div class="nav">
+        <div class="nav-wrap">
+          <span class="nav-wrap-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
+          <span class="nav-wrap-text"> 내 주변 보기 </span>
+          <span class="nav-wrap-star">
+            <!-- 즐겨찾기 X 일 때 -> line star -->
+            <i class="fa-regular fa-star"></i>
+            <!-- 즐겨찾기 O 일 때 -> solid star -->
+            <i class="fa-solid fa-star"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- CONTENT 영역 -->
+      <div class="content">
+        <!-- 좌측 사이드 바 -->
+        <div class="aside">
+          <a href="01-orange-details.html" class="aside-menu" id="aside-menu-1"
+            >내 주변 보기</a
+          >
+          <a href="#main-Information" class="aside-menu" id="aside-menu-2"
+            >장소 정보</a
+          >
+          <a href="#main-BarrierFree" class="aside-menu" id="aside-menu-3"
+            >배리어프리 현황</a
+          >
+          <a href="#main-Community" class="aside-menu" id="aside-menu-4"
+            >커뮤니티</a
+          >
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main">
+          <div class="main-wrap">
+            <!-- 장소 정보 -->
+            <div id="main-Information">
+              <h2 class="main-title">장소 정보</h2>
+              <div class="information-address-icon">
+                <i
+                  class="fa-regular fa-map"
+                  style="width: 30px; height: 30px"
+                ></i>
+              </div>
+              <div class="main-content" id="information-address-jibeon">
+                지번 주소가 들어갑니다.
+              </div>
+              <div class="information-detail-icon">
+                <i
+                  class="fa-regular fa-comments"
+                  style="width: 30px; height: 30px"
+                ></i>
+              </div>
+              <div class="main-content" id="information-detail-messages">
+                사용자가 입력한 장소 설명이 들어갑니다.
+              </div>
+            </div>
+
+            <!-- 배리어프리 정보 -->
+            <div class="main-BarrierFree" id="main-BarrierFree">
+              <h2 class="main-title">배리어프리 정보</h2>
+
+              <!-- 엘레베이터 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-elevator"></i>
+              </div>
+              <div class="BarrierFree-elevator">
+                <span class="main-content" id="BarrierFree-default">
+                  엘레베이터
+                </span>
+                <span id="elevator-info" class="BarrierFree-info"> 있음 </span>
+              </div>
+              <div class="BarrierFree-elevator-image">
+                <img src="images/NISI20220128_0000922816_web.jpg" />
+              </div>
+
+              <!-- 출입구 경사로 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-hill-rockslide"></i>
+              </div>
+              <div class="BarrierFree-gate">
+                <span class="main-content" id="BarrierFree-default">
+                  출입구 경사로
+                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 있음 </span>
+              </div>
+              <div class="BarrierFree-gateslope-image">
+                <img src="images/NISI20220128_0000922816_web.jpg" />
+              </div>
+
+              <!-- 출입구 점자 블록 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-braille"></i>
+              </div>
+              <div class="BarrierFree-gate">
+                <span class="main-content" id="BarrierFree-default">
+                  출입구 점자 블록
+                </span>
+                <span id="gateslope-info" class="BarrierFree-info"> 있음 </span>
+              </div>
+              <div class="BarrierFree-gateslope-image">
+                <img src="images/NISI20220128_0000922816_web.jpg" />
+              </div>
+
+              <!-- 장애인 화장실 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-restroom"></i>
+              </div>
+              <div class="BarrierFree-restroom">
+                <span class="main-content" id="BarrierFree-default">
+                  장애인 화장실
+                </span>
+                <span id="restroom-info" class="BarrierFree-info"> 있음 </span>
+              </div>
+              <div class="BarrierFree-image" id="BarrierFree-restroom-image">
+                <img src="images/NISI20220128_0000922816_web.jpg" />
+              </div>
+
+              <!-- 장애인 주차 구역 수 -->
+              <div class="BarrierFree-icon">
+                <i class="fa-solid fa-square-parking"></i>
+              </div>
+              <div class="BarrierFree-parking">
+                <span class="main-content" id="BarrierFree-default">
+                  장애인 주차 구역
+                </span>
+                <span id="parking-info" class="BarrierFree-info"> 2 </span>
+                <span id="BarrierFree-default"> 군데 있음 </span>
+              </div>
+              <div class="BarrierFree-image" id="BarrierFree-parking-image">
+                <img src="images/NISI20220128_0000922816_web.jpg" />
+              </div>
+            </div>
+
+            <!-- 메인 콘텐츠 커뮤니티 -->
+            <div id="main-Community" class="main-wrap-content">
+              <h2 class="main-title">커뮤니티</h2>
+              <button class="community-writing">글 작성하기</button>
+              <table id="Community-board">
+                <thead class="thead">
+                  <tr class="tr">
+                    <th class="th-1">번호</th>
+                    <th class="th-2">제목</th>
+                    <th class="th-3">글쓴이</th>
+                    <th class="th-4">작성일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>00</td>
+                    <td>
+                      <a href="#"
+                        >혹시 투썸에서 UI/UX 스터디 하실 분들 계신가요?</a
+                      >
+                    </td>
+                    <td>홍길동</td>
+                    <td>2022.11.24</td>
+                  </tr>
+                  <tr>
+                    <td>01</td>
+                    <td>
+                      <a href="#">시험 기간 빨리 끝났으면 좋겠다...</a>
+                    </td>
+                    <td>장우영</td>
+                    <td>2022.12.08</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img
+          id="footer-logo"
+          src="{% static 'admin/img/Logo_purple.png' %}"
+          alt="SSU-Barrier-Free-Map"
+          width="100px"
+          height="31px"
+        />
+        <p id="footer-text">
+          SSU-BARRIER-FREE-MAP @ 오픈소스기반기초설계 12조 김하빈, 박순용,
+          서민비, 장우영
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

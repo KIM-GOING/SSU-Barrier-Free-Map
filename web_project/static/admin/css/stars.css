@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v414_2090 {
+  width: 100%;
+  height: 870px;
+  background: rgba(249,249,249,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v414_2120 {
+  width: 250px;
+  height: 44px;
+  opacity: 1;
+  position: absolute;
+  top: 120px;
+  left: 616px;
+  overflow: hidden;
+}
+.v414_2121 {
+  color: rgba(90,90,90,1);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 36px;
+  opacity: 1;
+  text-align: left;
+}
+
+table{
+    border-collapse: collapse;
+    border-top: 2px solid #D9D9D9;
+}
+tr td{
+    border-bottom: 2px solid #D9D9D9;
+}
+
+tr .td-1{
+    width:5%;
+}
+tr .td-2{
+    width:30%;
+}
+tr .td-3{
+    width:60%;
+}
+tr .td-4{
+    width:5%;
+}
+.fa{
+    font-size: 24px;
+}
+.star_places_list_item_star_icon_building{
+    color:rgba(140,157,226,1);
+}
+.star_places_list_item_star_icon_restaurant{
+    color: rgba(255,114,54,1);
+}
+.star_places_list_item_name_building{
+    color:rgba(140,157,226,1);
+      font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  text-align: left;
+}
+.star_places_list_item_name_restaurant{
+    color: rgba(255,114,54,1);
+      font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  text-align: left;
+}
+.star_places_list_item_address{
+    color: rgba(90,90,90,1);
+  font-family: Inter;
+  font-weight: Light;
+  font-size: 24px;
+  text-align: left;
+}
+.star_places_list_item_delete_icon{
+    height:36px;
+    width:36px;
+}
+
+.v473_2078 {
+  width: 70%;
+  height: 617px;
+  margin: 15px;
+  opacity: 1;
+  position: relative;
+  top: 220px;
+  left: 0px;
+  overflow: hidden;
+}

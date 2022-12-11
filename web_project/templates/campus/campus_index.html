@@ -1,60 +1,47 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {%load static%}
-<html>
-<head>
+
+{% block head %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-        <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
-    <style>
+  <link href="{% static 'admin/css/styles.css' %}" rel="stylesheet">
+  <style>
     img {
       font-size:20px;
     }
   </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="{% static 'admin/img/logo2_blue.png' %}" alt="logo2_blue" width="132" height="39"/></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{%url 'index' %}">Home</a>
-        <a class="nav-link" href="{%url 'campus:index'%}">캠퍼스 보기</a>
-        <a class="nav-link" href="{% url 'restaurant:marker' %}">지도 보기</a>
-      </div>
-    </div>
-  </div>
-</nav>
+{%endblock%}
+
+
+{% block content %}
 <div class="v62_325" id="building_list">
     <div class="v62_327"><span class="v62_328" id="building_list_item_building">건물별 보기</span></div>
-    <div class="v62_329"><a href="/" class="v62_330" id="building_list_item_education">교육관</a></div>
-    <div class="v62_331"><a href="/" class="v62_332" id="building_list_item_globalbrainhall">글로벌브레인홀</a></div>
-    <div class="v62_333"><a href="/" class="v62_334" id="building_list_item_ground">대운동장</a></div>
-    <div class="v62_335"><a href="/" class="v62_336" id="building_list_item_residencehall">레지던스홀</a></div>
-    <div class="v62_337"><a href="/" class="v62_338" id="building_list_item_culture">문화관</a></div>
-    <div class="v62_339"><a href="/" class="v62_340" id="building_list_item_future">미래관</a></div>
-    <div class="v62_341"><a href="/" class="v62_342" id="building_list_item_whitehorse">백마관</a></div>
-    <div class="v62_343"><a href="/" class="v62_344" id="building_list_item_bairdhall">베어드홀</a></div>
-    <div class="v62_345"><a href="/" class="v62_346" id="building_list_item_venture">벤처기업중소센터</a></div>
-    <div class="v62_347"><a href="/" class="v62_348" id="building_list_item_waterfall">분수대</a></div>
-    <div class="v62_349"><a href="/" class="v62_350" id="building_list_item_gyeongsang">숭덕경상관</a></div>
-    <div class="v62_351"><a href="/" class="v62_352" id="building_list_item_shinyang">신양관</a></div>
-    <div class="v62_353"><a href="/" class="v62_354" id="building_list_item_ahneaktai">안익태기념관</a></div>
-    <div class="v62_355"><a href="/" class="v62_356" id="building_list_item_research">연구관</a></div>
-    <div class="v62_357"><a href="/" class="v62_358" id="building_list_item_westminsterhall">웨스트민스터홀</a></div>
-    <div class="v62_359"><a href="/" class="v62_360" id="building_list_item_computersystem">전산관</a></div>
-    <div class="v62_361"><a href="/" class="v62_362" id="building_list_item_it">정보과학관</a></div>
-    <div class="v62_363"><a href="/" class="v62_364" id="building_list_item_chomansik">조만식기념관</a></div>
-    <div class="v62_365"><a href="/" class="v62_366" id="building_list_item_library">중앙도서관</a></div>
-    <div class="v62_367"><a href="/" class="v62_368" id="building_list_item_jinri">진리관</a></div>
-    <div class="v62_369"><a href="/" class="v62_370" id="building_list_item_changshin">창신관</a></div>
-    <div class="v62_379"><a href="/" class="v62_380" id="building_list_item_changui">창의관</a></div>
-    <div class="v62_371"><a href="/" class="v62_372" id="building_list_item_student">학생회관</a></div>
-    <div class="v62_373"><a href="/" class="v62_374" id="building_list_item_museum">한국기독교박물관</a></div>
-    <div class="v62_375"><a href="/" class="v62_376" id="building_list_item_hankyungchik">한경직기념관</a></div>
-    <div class="v62_377"><a href="/" class="v62_378" id="building_list_item_hyeongnam">형남공학관</a></div>
+    <div class="v62_329"><a href= "{%url 'common:service_not_ready' %}" class="v62_330" id="building_list_item_education">교육관</a></div>
+    <div class="v62_331"><a href="globalbrainhall" class="v62_332" id="building_list_item_globalbrainhall">글로벌브레인홀</a></div>
+    <div class="v62_333"><a href="{%url 'common:service_not_ready' %}" class="v62_334" id="building_list_item_ground">대운동장</a></div>
+    <div class="v62_335"><a href="{%url 'common:service_not_ready' %}" class="v62_336" id="building_list_item_residencehall">레지던스홀</a></div>
+    <div class="v62_337"><a href="{%url 'common:service_not_ready' %}" class="v62_338" id="building_list_item_culture">문화관</a></div>
+    <div class="v62_339"><a href="{%url 'common:service_not_ready' %}" class="v62_340" id="building_list_item_future">미래관</a></div>
+    <div class="v62_341"><a href="{%url 'common:service_not_ready' %}" class="v62_342" id="building_list_item_whitehorse">백마관</a></div>
+    <div class="v62_343"><a href="{%url 'common:service_not_ready' %}" class="v62_344" id="building_list_item_bairdhall">베어드홀</a></div>
+    <div class="v62_345"><a href="{%url 'common:service_not_ready' %}" class="v62_346" id="building_list_item_venture">벤처기업중소센터</a></div>
+    <div class="v62_347"><a href="{%url 'common:service_not_ready' %}" class="v62_348" id="building_list_item_waterfall">분수대</a></div>
+    <div class="v62_349"><a href="{%url 'common:service_not_ready' %}" class="v62_350" id="building_list_item_gyeongsang">숭덕경상관</a></div>
+    <div class="v62_351"><a href="{%url 'common:service_not_ready' %}" class="v62_352" id="building_list_item_shinyang">신양관</a></div>
+    <div class="v62_353"><a href="{%url 'common:service_not_ready' %}" class="v62_354" id="building_list_item_ahneaktai">안익태기념관</a></div>
+    <div class="v62_355"><a href="{%url 'common:service_not_ready' %}" class="v62_356" id="building_list_item_research">연구관</a></div>
+    <div class="v62_357"><a href="{%url 'common:service_not_ready' %}" class="v62_358" id="building_list_item_westminsterhall">웨스트민스터홀</a></div>
+    <div class="v62_359"><a href="{%url 'common:service_not_ready' %}" class="v62_360" id="building_list_item_computersystem">전산관</a></div>
+    <div class="v62_361"><a href="it" class="v62_362" id="building_list_item_it">정보과학관</a></div>
+    <div class="v62_363"><a href="{%url 'common:service_not_ready' %}" class="v62_364" id="building_list_item_chomansik">조만식기념관</a></div>
+    <div class="v62_365"><a href="{%url 'common:service_not_ready' %}" class="v62_366" id="building_list_item_library">중앙도서관</a></div>
+    <div class="v62_367"><a href="{%url 'common:service_not_ready' %}" class="v62_368" id="building_list_item_jinri">진리관</a></div>
+    <div class="v62_369"><a href="{%url 'common:service_not_ready' %}" class="v62_370" id="building_list_item_changshin">창신관</a></div>
+    <div class="v62_379"><a href="{%url 'common:service_not_ready' %}" class="v62_380" id="building_list_item_changui">창의관</a></div>
+    <div class="v62_371"><a href="{%url 'common:service_not_ready' %}" class="v62_372" id="building_list_item_student">학생회관</a></div>
+    <div class="v62_373"><a href="{%url 'common:service_not_ready' %}" class="v62_374" id="building_list_item_museum">한국기독교박물관</a></div>
+    <div class="v62_375"><a href="{%url 'common:service_not_ready' %}" class="v62_376" id="building_list_item_hankyungchik">한경직기념관</a></div>
+    <div class="v62_377"><a href="{%url 'common:service_not_ready' %}" class="v62_378" id="building_list_item_hyeongnam">형남공학관</a></div>
 </div>
 
 <div class="v62_667">
@@ -73,37 +60,35 @@
         <div class="v24_194" id="building_map_item_bigstreet"></div>
         <div class="v24_225"></div><div class="v24_227"></div><div class="v24_228"></div>
         <div class="v24_229"></div><div class="v24_230"></div>
-        <a href="/" class="v24_463" id="building_map_item_whitehorse">백마관</a>
-        <a href="/" class="v24_476" id="building_map_item_shinyang">신양관</a>
-        <a href="/" class="v24_478" id="building_map_item_research">연구관</a>
-        <a href="/" class="v24_479" id="building_map_item_changshin">창신관</a>
-        <a href="/" class="v24_481" id="building_map_item_computersystem">전산관</a>
-        <a href="/" class="v24_485" id="building_map_item_future">미래관</a>
-        <a href="/" class="v24_486" id="building_map_item_gyeongsang">숭덕경상관</a>
-        <a href="/" class="v24_487" id="building_map_item_culture">문화관</a>
-        <a href="/" class="v24_488" id="building_map_item_ahneaktai">안익태기념관</a>
-        <a href="/" class="v24_482" id="building_map_item_residencehall">레지던스홀</a>
-        <a href="/" class="v24_483" id="building_map_item_it">정보과학관</a>
-        <a href="/" class="v24_484" id="building_map_item_changui">창의관</a>
-        <a href="/" class="v24_480" id="building_map_item_globalbrainhall">글로벌브레인홀</a>
-        <a href="/" class="v24_477" id="building_map_item_library">중앙도서관</a>
-        <a href="/" class="v24_464" id="building_map_item_education">교육관</a>
-        <a href="/" class="v24_465" id="building_map_item_venture">벤처기업중소센터</a>
-        <a href="common/building_details.html" class="v24_473" id="building_map_item_hyeongnam">형남공학관</a>
-        <a href="/" class="v24_474" id="building_map_item_museum">한국기독교박물관</a>
-        <a href="/" class="v24_475" id="building_map_item_hankyungchik">한경직기념관</a>
-        <a href="/" class="v24_466" id="building_map_item_ground">대운동장</a>
-        <a href="/" class="v24_471" id="building_map_item_bairdhall">베어드홀</a>
-        <a href="/" class="v24_472" id="building_map_item_waterfall">분수대</a>
-        <a href="/" class="v24_467" id="building_map_item_student">학생회관</a>
-        <a href="/" class="v24_468" id="building_map_item_jinri">진리관</a>
-        <a href="/" class="v24_470" id="building_map_item_westminsterhall">웨스트민스터홀</a>
-        <a href="/" class="v24_469" id="building_map_item_chomansik">조만식기념관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_463" id="building_map_item_whitehorse">백마관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_476" id="building_map_item_shinyang">신양관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_478" id="building_map_item_research">연구관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_479" id="building_map_item_changshin">창신관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_481" id="building_map_item_computersystem">전산관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_485" id="building_map_item_future">미래관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_486" id="building_map_item_gyeongsang">숭덕경상관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_487" id="building_map_item_culture">문화관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_488" id="building_map_item_ahneaktai">안익태기념관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_482" id="building_map_item_residencehall">레지던스홀</a>
+        <a href="it" class="v24_483" id="building_map_item_it">정보과학관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_484" id="building_map_item_changui">창의관</a>
+        <a href="globalbrainhall" class="v24_480" id="building_map_item_globalbrainhall">글로벌브레인홀</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_477" id="building_map_item_library">중앙도서관</a>
+        <a href="education" class="v24_464" id="building_map_item_education">교육관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_465" id="building_map_item_venture">벤처기업중소센터</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_473" id="building_map_item_hyeongnam">형남공학관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_474" id="building_map_item_museum">한국기독교박물관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_475" id="building_map_item_hankyungchik">한경직기념관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_466" id="building_map_item_ground">대운동장</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_471" id="building_map_item_bairdhall">베어드홀</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_472" id="building_map_item_waterfall">분수대</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_467" id="building_map_item_student">학생회관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_468" id="building_map_item_jinri">진리관</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_470" id="building_map_item_westminsterhall">웨스트민스터홀</a>
+        <a href="{%url 'common:service_not_ready' %}" class="v24_469" id="building_map_item_chomansik">조만식기념관</a>
     </div>
 </div>
-</body>
-</html>
-<br/><br/>
+
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 <script type="text/javascript" src="../static/admin/js/building_main.js"></script>
 <style>
@@ -1266,3 +1251,4 @@ body {
   text-align: left;
 }
 </style>
+{%endblock%}

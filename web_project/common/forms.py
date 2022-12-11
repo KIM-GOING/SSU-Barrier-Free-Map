@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django_summernote.widgets import SummernoteWidget
 from common.models import Location,BarrierFreeInfo,Reply
 
 class UserForm(UserCreationForm):
@@ -40,4 +39,4 @@ class BarrierFreeInfoForm(forms.ModelForm):
 class ReplyForm(forms.ModelForm):
     class Meta:
         model = Reply
-        fields = ['text']
+        fields = ['text', 'writer']
