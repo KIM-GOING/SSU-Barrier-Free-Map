@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.http import HttpResponse
@@ -14,4 +15,3 @@ def detail(request,campus_id):
     campus = get_object_or_404(Campus, pk =campus_id)
     context = {'campus':campus}
     return render(request,'campus/campus_detail.html',context)
-

@@ -1,5 +1,6 @@
 from django.db import models
 from common.models import Location,BarrierFreeInfo
+
 class Campus(models.Model):
     building_name = models.CharField(max_length=200)
     bottom_floor = models.IntegerField(null=True)

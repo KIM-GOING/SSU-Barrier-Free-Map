@@ -10,7 +10,6 @@ class Restaurant(models.Model):
     restaurant_name = models.CharField(max_length=200)
     restaurant_detail = models.TextField(blank=True)
 
-
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
